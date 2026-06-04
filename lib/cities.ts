@@ -1,0 +1,752 @@
+/**
+ * Steden & gemeenten in Oost-Vlaanderen.
+ *
+ * Elke gemeente heeft echte lokale data (postcode, arrondissement, deelgemeenten,
+ * buurgemeenten, een feitelijk kenmerk). Daardoor genereert elke stadspagina
+ * UNIEKE, kloppende lokale content i.p.v. gespinnte duplicaten.
+ */
+
+export type City = {
+  name: string;
+  slug: string;
+  postal: string;
+  arr: string; // arrondissement
+  deelgemeenten: string[];
+  nearby: string[]; // slugs van buurgemeenten (interne links)
+  kenmerk: string; // één waar lokaal feit voor unieke intro
+  isDistrict?: boolean; // deelgemeente van Gent
+};
+
+export const cities: City[] = [
+  // ── Arrondissement Gent ──────────────────────────────────────────────
+  {
+    name: "Gent",
+    slug: "gent",
+    postal: "9000",
+    arr: "Gent",
+    deelgemeenten: [
+      "Wondelgem", "Sint-Amandsberg", "Gentbrugge", "Drongen", "Oostakker",
+      "Mariakerke", "Ledeberg", "Sint-Denijs-Westrem", "Zwijnaarde", "Afsnee",
+    ],
+    nearby: ["merelbeke", "destelbergen", "melle", "evergem", "lochristi", "deinze"],
+    kenmerk:
+      "de provinciehoofdstad met een historische binnenstad vol smalle rijwoningen, appartementen en studentenkamers waar oudere cilindersloten en meerpuntssloten veel voorkomen",
+  },
+  {
+    name: "Merelbeke",
+    slug: "merelbeke",
+    postal: "9820",
+    arr: "Gent",
+    deelgemeenten: ["Bottelare", "Lemberge", "Melsen", "Munte", "Schelderode"],
+    nearby: ["gent", "melle", "oosterzele", "gavere"],
+    kenmerk: "een groene woongemeente ten zuiden van Gent met veel vrijstaande woningen en verkavelingen",
+  },
+  {
+    name: "Melle",
+    slug: "melle",
+    postal: "9090",
+    arr: "Gent",
+    deelgemeenten: ["Gontrode"],
+    nearby: ["gent", "merelbeke", "wetteren", "destelbergen"],
+    kenmerk: "een woongemeente langs de Schelde, vlak bij de Gentse rand",
+  },
+  {
+    name: "Destelbergen",
+    slug: "destelbergen",
+    postal: "9070",
+    arr: "Gent",
+    deelgemeenten: ["Heusden"],
+    nearby: ["gent", "melle", "lochristi", "wetteren"],
+    kenmerk: "een residentiële gemeente aan de oostkant van Gent met veel fermettes en open bebouwing",
+  },
+  {
+    name: "Lochristi",
+    slug: "lochristi",
+    postal: "9080",
+    arr: "Gent",
+    deelgemeenten: ["Beervelde", "Zaffelare", "Zeveneken"],
+    nearby: ["gent", "destelbergen", "lokeren", "wachtebeke"],
+    kenmerk: "de begonia- en azaleagemeente in het noorden van het Gentse, met veel ruime villa's",
+  },
+  {
+    name: "Evergem",
+    slug: "evergem",
+    postal: "9940",
+    arr: "Gent",
+    deelgemeenten: ["Sleidinge", "Ertvelde", "Kluizen"],
+    nearby: ["gent", "lievegem", "assenede", "zelzate"],
+    kenmerk: "een grote gemeente langs het kanaal Gent-Terneuzen met zowel dorpskernen als industrie",
+  },
+  {
+    name: "Lievegem",
+    slug: "lievegem",
+    postal: "9930",
+    arr: "Gent",
+    deelgemeenten: ["Lovendegem", "Waarschoot", "Zomergem"],
+    nearby: ["evergem", "eeklo", "deinze", "aalter"],
+    kenmerk: "een fusiegemeente (Lovendegem, Waarschoot en Zomergem) op de grens van Meetjesland en Gent",
+  },
+  {
+    name: "Deinze",
+    slug: "deinze",
+    postal: "9800",
+    arr: "Gent",
+    deelgemeenten: [
+      "Astene", "Bachte-Maria-Leerne", "Gottem", "Grammene", "Hansbeke",
+      "Landegem", "Meigem", "Nevele", "Petegem-aan-de-Leie", "Sint-Martens-Leerne",
+      "Vinkt", "Vosselare", "Wontergem", "Zeveren", "Merendree", "Poesele",
+    ],
+    nearby: ["gent", "sint-martens-latem", "nazareth", "aalter", "kruisem"],
+    kenmerk: "een Leiestad met een uitgestrekt buitengebied na de fusie met Nevele",
+  },
+  {
+    name: "Sint-Martens-Latem",
+    slug: "sint-martens-latem",
+    postal: "9830",
+    arr: "Gent",
+    deelgemeenten: ["Deurle"],
+    nearby: ["gent", "deinze", "de-pinte", "nazareth"],
+    kenmerk: "de gegoede kunstenaarsgemeente aan de Leie, bekend om haar dure villa's met hoogwaardige beveiliging",
+  },
+  {
+    name: "De Pinte",
+    slug: "de-pinte",
+    postal: "9840",
+    arr: "Gent",
+    deelgemeenten: ["Zevergem"],
+    nearby: ["gent", "sint-martens-latem", "nazareth", "gavere"],
+    kenmerk: "een rustige residentiële gemeente ten zuiden van Gent",
+  },
+  {
+    name: "Nazareth",
+    slug: "nazareth",
+    postal: "9810",
+    arr: "Gent",
+    deelgemeenten: ["Eke"],
+    nearby: ["de-pinte", "deinze", "gavere", "kruisem"],
+    kenmerk: "een gemeente langs de E17 met een mix van landelijke kernen en bedrijvigheid",
+  },
+  {
+    name: "Gavere",
+    slug: "gavere",
+    postal: "9890",
+    arr: "Gent",
+    deelgemeenten: ["Asper", "Baaigem", "Dikkelvenne", "Semmerzake", "Vurste"],
+    nearby: ["merelbeke", "oosterzele", "nazareth", "oudenaarde"],
+    kenmerk: "een gemeente langs de Schelde tussen Gent en de Vlaamse Ardennen",
+  },
+  {
+    name: "Oosterzele",
+    slug: "oosterzele",
+    postal: "9860",
+    arr: "Gent",
+    deelgemeenten: ["Balegem", "Gijzenzele", "Landskouter", "Moortsele", "Scheldewindeke"],
+    nearby: ["merelbeke", "gavere", "zottegem", "wetteren"],
+    kenmerk: "een landelijke gemeente in de Vlaamse-Ardennenrand met veel open bebouwing",
+  },
+
+  // ── Gentse deelgemeenten (aparte hyperlokale pagina's) ───────────────
+  {
+    name: "Wondelgem",
+    slug: "wondelgem",
+    postal: "9032",
+    arr: "Gent",
+    deelgemeenten: [],
+    nearby: ["gent", "mariakerke", "evergem"],
+    kenmerk: "een dichtbevolkte deelgemeente in het noordwesten van Gent met veel rij- en burgerwoningen",
+    isDistrict: true,
+  },
+  {
+    name: "Sint-Amandsberg",
+    slug: "sint-amandsberg",
+    postal: "9040",
+    arr: "Gent",
+    deelgemeenten: [],
+    nearby: ["gent", "destelbergen", "oostakker"],
+    kenmerk: "een drukke Gentse deelgemeente met overwegend rijwoningen en appartementen",
+    isDistrict: true,
+  },
+  {
+    name: "Gentbrugge",
+    slug: "gentbrugge",
+    postal: "9050",
+    arr: "Gent",
+    deelgemeenten: [],
+    nearby: ["gent", "ledeberg", "melle"],
+    kenmerk: "een Gentse deelgemeente langs de Schelde met veel oudere woningen",
+    isDistrict: true,
+  },
+  {
+    name: "Drongen",
+    slug: "drongen",
+    postal: "9031",
+    arr: "Gent",
+    deelgemeenten: [],
+    nearby: ["gent", "mariakerke", "deinze"],
+    kenmerk: "een groene Gentse deelgemeente aan de Leie met veel open bebouwing",
+    isDistrict: true,
+  },
+  {
+    name: "Oostakker",
+    slug: "oostakker",
+    postal: "9041",
+    arr: "Gent",
+    deelgemeenten: [],
+    nearby: ["gent", "sint-amandsberg", "lochristi"],
+    kenmerk: "een Gentse deelgemeente in het noorden, bekend om de basiliek en de havenrand",
+    isDistrict: true,
+  },
+  {
+    name: "Mariakerke",
+    slug: "mariakerke",
+    postal: "9030",
+    arr: "Gent",
+    deelgemeenten: [],
+    nearby: ["gent", "wondelgem", "drongen"],
+    kenmerk: "een residentiële Gentse deelgemeente in het westen",
+    isDistrict: true,
+  },
+  {
+    name: "Ledeberg",
+    slug: "ledeberg",
+    postal: "9050",
+    arr: "Gent",
+    deelgemeenten: [],
+    nearby: ["gent", "gentbrugge", "merelbeke"],
+    kenmerk: "een compacte, dichtbebouwde Gentse deelgemeente net buiten de stadsring",
+    isDistrict: true,
+  },
+  {
+    name: "Zwijnaarde",
+    slug: "zwijnaarde",
+    postal: "9052",
+    arr: "Gent",
+    deelgemeenten: [],
+    nearby: ["gent", "merelbeke", "de-pinte"],
+    kenmerk: "een Gentse deelgemeente bij de wetenschapscampus en het verkeersknooppunt E17/E40",
+    isDistrict: true,
+  },
+  {
+    name: "Sint-Denijs-Westrem",
+    slug: "sint-denijs-westrem",
+    postal: "9051",
+    arr: "Gent",
+    deelgemeenten: [],
+    nearby: ["gent", "zwijnaarde", "sint-martens-latem"],
+    kenmerk: "een welgestelde Gentse deelgemeente bij Flanders Expo met veel villabebouwing",
+    isDistrict: true,
+  },
+
+  // ── Arrondissement Aalst ─────────────────────────────────────────────
+  {
+    name: "Aalst",
+    slug: "aalst",
+    postal: "9300",
+    arr: "Aalst",
+    deelgemeenten: [
+      "Erembodegem", "Gijzegem", "Hofstade", "Baardegem", "Herdersem",
+      "Meldert", "Moorsel", "Nieuwerkerken",
+    ],
+    nearby: ["denderleeuw", "lede", "erpe-mere", "haaltert", "dendermonde"],
+    kenmerk: "de carnavalsstad aan de Dender met een dichte stadskern en veel rijwoningen",
+  },
+  {
+    name: "Denderleeuw",
+    slug: "denderleeuw",
+    postal: "9470",
+    arr: "Aalst",
+    deelgemeenten: ["Iddergem", "Welle"],
+    nearby: ["aalst", "ninove", "haaltert", "liedekerke"],
+    kenmerk: "een verstedelijkte gemeente langs de Dender en de spoorlijn Brussel-Gent",
+  },
+  {
+    name: "Haaltert",
+    slug: "haaltert",
+    postal: "9450",
+    arr: "Aalst",
+    deelgemeenten: ["Denderhoutem", "Heldergem", "Kerksken"],
+    nearby: ["aalst", "denderleeuw", "erpe-mere", "ninove"],
+    kenmerk: "een landelijke gemeente tussen Aalst en de Denderstreek",
+  },
+  {
+    name: "Erpe-Mere",
+    slug: "erpe-mere",
+    postal: "9420",
+    arr: "Aalst",
+    deelgemeenten: ["Aaigem", "Bambrugge", "Burst", "Erondegem", "Ottergem", "Vlekkem"],
+    nearby: ["aalst", "lede", "haaltert", "sint-lievens-houtem"],
+    kenmerk: "een gemeente tussen Aalst en Zottegem met verspreide dorpskernen",
+  },
+  {
+    name: "Lede",
+    slug: "lede",
+    postal: "9340",
+    arr: "Aalst",
+    deelgemeenten: ["Impe", "Oordegem", "Smetlede", "Wanzele"],
+    nearby: ["aalst", "wichelen", "erpe-mere", "wetteren"],
+    kenmerk: "een gemeente tussen Aalst en Wetteren met een mix van lintbebouwing en open ruimte",
+  },
+  {
+    name: "Ninove",
+    slug: "ninove",
+    postal: "9400",
+    arr: "Aalst",
+    deelgemeenten: [
+      "Appelterre-Eichem", "Aspelare", "Denderwindeke", "Lieferinge", "Meerbeke",
+      "Nederhasselt", "Okegem", "Outer", "Pollare", "Voorde",
+    ],
+    nearby: ["denderleeuw", "geraardsbergen", "haaltert", "aalst"],
+    kenmerk: "een stad aan de Dender op de grens met Vlaams-Brabant",
+  },
+  {
+    name: "Geraardsbergen",
+    slug: "geraardsbergen",
+    postal: "9500",
+    arr: "Aalst",
+    deelgemeenten: [
+      "Goeferdinge", "Grimminge", "Idegem", "Moerbeke", "Nederboelare",
+      "Nieuwenhove", "Onkerzele", "Ophasselt", "Overboelare", "Schendelbeke",
+      "Smeerebbe-Vloerzegem", "Viane", "Zandbergen", "Zarlardinge",
+    ],
+    nearby: ["ninove", "zottegem", "brakel", "lierde"],
+    kenmerk: "de stad van de Muur en Manneken Pis, in de heuvels van de Vlaamse Ardennen",
+  },
+  {
+    name: "Zottegem",
+    slug: "zottegem",
+    postal: "9620",
+    arr: "Aalst",
+    deelgemeenten: [
+      "Elene", "Erwetegem", "Godveerdegem", "Grotenberge", "Leeuwergem",
+      "Oombergen", "Sint-Goriks-Oudenhove", "Sint-Maria-Oudenhove", "Strijpen", "Velzeke-Ruddershove",
+    ],
+    nearby: ["oosterzele", "herzele", "geraardsbergen", "zwalm", "sint-lievens-houtem"],
+    kenmerk: "de Egmontstad, een regionaal centrum in het zuiden van Oost-Vlaanderen",
+  },
+  {
+    name: "Herzele",
+    slug: "herzele",
+    postal: "9550",
+    arr: "Aalst",
+    deelgemeenten: ["Borsbeke", "Hillegem", "Ressegem", "Sint-Antelinks", "Sint-Lievens-Esse", "Steenhuize-Wijnhuize", "Woubrechtegem"],
+    nearby: ["zottegem", "sint-lievens-houtem", "erpe-mere", "lierde"],
+    kenmerk: "een landelijke gemeente in de Vlaamse Ardennen",
+  },
+  {
+    name: "Sint-Lievens-Houtem",
+    slug: "sint-lievens-houtem",
+    postal: "9520",
+    arr: "Aalst",
+    deelgemeenten: ["Bavegem", "Letterhoutem", "Vlierzele", "Zonnegem"],
+    nearby: ["erpe-mere", "herzele", "oosterzele", "zottegem"],
+    kenmerk: "bekend om zijn jaarmarkt, een landelijke gemeente tussen Aalst en Zottegem",
+  },
+
+  // ── Arrondissement Dendermonde ───────────────────────────────────────
+  {
+    name: "Dendermonde",
+    slug: "dendermonde",
+    postal: "9200",
+    arr: "Dendermonde",
+    deelgemeenten: [
+      "Appels", "Baasrode", "Grembergen", "Mespelare", "Oudegem",
+      "Schoonaarde", "Sint-Gillis-bij-Dendermonde",
+    ],
+    nearby: ["lebbeke", "berlare", "wichelen", "hamme", "buggenhout"],
+    kenmerk: "een historische stad bij de samenvloeiing van Dender en Schelde",
+  },
+  {
+    name: "Lebbeke",
+    slug: "lebbeke",
+    postal: "9280",
+    arr: "Dendermonde",
+    deelgemeenten: ["Denderbelle", "Wieze"],
+    nearby: ["dendermonde", "buggenhout", "aalst", "berlare"],
+    kenmerk: "een gemeente tussen Dendermonde en Aalst, bekend van het Wieze-bier",
+  },
+  {
+    name: "Buggenhout",
+    slug: "buggenhout",
+    postal: "9255",
+    arr: "Dendermonde",
+    deelgemeenten: ["Opdorp"],
+    nearby: ["lebbeke", "dendermonde", "hamme"],
+    kenmerk: "een gemeente met een groot bos op de grens met Vlaams-Brabant en Antwerpen",
+  },
+  {
+    name: "Berlare",
+    slug: "berlare",
+    postal: "9290",
+    arr: "Dendermonde",
+    deelgemeenten: ["Overmere", "Uitbergen"],
+    nearby: ["dendermonde", "wichelen", "zele", "lokeren"],
+    kenmerk: "een gemeente bij het Donkmeer, een populaire watertoeristische plek",
+  },
+  {
+    name: "Wichelen",
+    slug: "wichelen",
+    postal: "9260",
+    arr: "Dendermonde",
+    deelgemeenten: ["Schellebelle", "Serskamp"],
+    nearby: ["wetteren", "berlare", "lede", "dendermonde"],
+    kenmerk: "een gemeente langs de Schelde tussen Wetteren en Dendermonde",
+  },
+  {
+    name: "Hamme",
+    slug: "hamme",
+    postal: "9220",
+    arr: "Dendermonde",
+    deelgemeenten: ["Moerzeke"],
+    nearby: ["dendermonde", "zele", "waasmunster", "temse"],
+    kenmerk: "een gemeente langs de Durme en de Schelde in het Waasland",
+  },
+  {
+    name: "Zele",
+    slug: "zele",
+    postal: "9240",
+    arr: "Dendermonde",
+    deelgemeenten: [],
+    nearby: ["lokeren", "berlare", "hamme", "dendermonde"],
+    kenmerk: "een nijverheidsgemeente langs de Durme tussen Lokeren en Dendermonde",
+  },
+
+  // ── Arrondissement Sint-Niklaas (Waasland) ───────────────────────────
+  {
+    name: "Sint-Niklaas",
+    slug: "sint-niklaas",
+    postal: "9100",
+    arr: "Sint-Niklaas",
+    deelgemeenten: ["Belsele", "Nieuwkerken-Waas", "Sinaai"],
+    nearby: ["temse", "beveren", "stekene", "sint-gillis-waas", "lokeren"],
+    kenmerk: "de hoofdstad van het Waasland met het grootste marktplein van België",
+  },
+  {
+    name: "Lokeren",
+    slug: "lokeren",
+    postal: "9160",
+    arr: "Sint-Niklaas",
+    deelgemeenten: ["Eksaarde", "Daknam"],
+    nearby: ["zele", "lochristi", "sint-niklaas", "moerbeke", "waasmunster"],
+    kenmerk: "de Durmestad op de grens van het Waasland en het Gentse",
+  },
+  {
+    name: "Temse",
+    slug: "temse",
+    postal: "9140",
+    arr: "Sint-Niklaas",
+    deelgemeenten: ["Elversele", "Steendorp", "Tielrode"],
+    nearby: ["sint-niklaas", "hamme", "beveren", "waasmunster"],
+    kenmerk: "een Scheldegemeente, bekend om haar brug en scheepswerfverleden",
+  },
+  {
+    name: "Beveren",
+    slug: "beveren",
+    postal: "9120",
+    arr: "Sint-Niklaas",
+    deelgemeenten: ["Melsele", "Haasdonk", "Kallo", "Doel", "Kieldrecht", "Verrebroek", "Vrasene"],
+    nearby: ["sint-niklaas", "temse", "sint-gillis-waas", "stekene"],
+    kenmerk: "een uitgestrekte Wase gemeente die reikt tot aan de haven en de Schelde",
+  },
+  {
+    name: "Sint-Gillis-Waas",
+    slug: "sint-gillis-waas",
+    postal: "9170",
+    arr: "Sint-Niklaas",
+    deelgemeenten: ["De Klinge", "Meerdonk", "Sint-Pauwels"],
+    nearby: ["sint-niklaas", "stekene", "beveren"],
+    kenmerk: "een landelijke grensgemeente in het noorden van het Waasland",
+  },
+  {
+    name: "Stekene",
+    slug: "stekene",
+    postal: "9190",
+    arr: "Sint-Niklaas",
+    deelgemeenten: ["Kemzeke"],
+    nearby: ["sint-niklaas", "sint-gillis-waas", "moerbeke", "beveren"],
+    kenmerk: "een bosrijke grensgemeente in het noordoosten van Oost-Vlaanderen",
+  },
+  {
+    name: "Waasmunster",
+    slug: "waasmunster",
+    postal: "9250",
+    arr: "Sint-Niklaas",
+    deelgemeenten: ["Sombeke"],
+    nearby: ["hamme", "lokeren", "temse", "sint-niklaas"],
+    kenmerk: "een groene gemeente langs de Durme in het Waasland",
+  },
+  {
+    name: "Moerbeke",
+    slug: "moerbeke",
+    postal: "9180",
+    arr: "Gent",
+    deelgemeenten: [],
+    nearby: ["wachtebeke", "lokeren", "stekene"],
+    kenmerk: "Moerbeke-Waas, een landelijke gemeente bij de Nederlandse grens",
+  },
+  {
+    name: "Wachtebeke",
+    slug: "wachtebeke",
+    postal: "9185",
+    arr: "Gent",
+    deelgemeenten: [],
+    nearby: ["moerbeke", "lochristi", "zelzate"],
+    kenmerk: "een gemeente bij het provinciaal domein Puyenbroeck en de Nederlandse grens",
+  },
+
+  // ── Arrondissement Eeklo (Meetjesland) ───────────────────────────────
+  {
+    name: "Eeklo",
+    slug: "eeklo",
+    postal: "9900",
+    arr: "Eeklo",
+    deelgemeenten: [],
+    nearby: ["maldegem", "kaprijke", "lievegem", "assenede", "sint-laureins"],
+    kenmerk: "de hoofdstad van het Meetjesland met een levendige handelskern",
+  },
+  {
+    name: "Maldegem",
+    slug: "maldegem",
+    postal: "9990",
+    arr: "Eeklo",
+    deelgemeenten: ["Adegem", "Middelburg"],
+    nearby: ["eeklo", "sint-laureins", "aalter"],
+    kenmerk: "een grensgemeente in het Meetjesland, bekend van de stoomtrein",
+  },
+  {
+    name: "Assenede",
+    slug: "assenede",
+    postal: "9960",
+    arr: "Eeklo",
+    deelgemeenten: ["Boekhoute", "Bassevelde", "Oosteeklo"],
+    nearby: ["eeklo", "evergem", "kaprijke", "zelzate"],
+    kenmerk: "een poldergemeente bij de Nederlandse grens",
+  },
+  {
+    name: "Kaprijke",
+    slug: "kaprijke",
+    postal: "9970",
+    arr: "Eeklo",
+    deelgemeenten: ["Lembeke"],
+    nearby: ["eeklo", "assenede", "sint-laureins"],
+    kenmerk: "een kleine landelijke gemeente in het noorden van het Meetjesland",
+  },
+  {
+    name: "Sint-Laureins",
+    slug: "sint-laureins",
+    postal: "9980",
+    arr: "Eeklo",
+    deelgemeenten: ["Sint-Margriete", "Watervliet", "Waterland-Oudeman"],
+    nearby: ["eeklo", "kaprijke", "maldegem", "assenede"],
+    kenmerk: "een poldergemeente met krekengebied aan de Nederlandse grens",
+  },
+  {
+    name: "Zelzate",
+    slug: "zelzate",
+    postal: "9060",
+    arr: "Gent",
+    deelgemeenten: [],
+    nearby: ["assenede", "evergem", "wachtebeke"],
+    kenmerk: "een industriegemeente aan het kanaal Gent-Terneuzen",
+  },
+  {
+    name: "Aalter",
+    slug: "aalter",
+    postal: "9880",
+    arr: "Gent",
+    deelgemeenten: ["Bellem", "Lotenhulle", "Poeke", "Knesselare", "Ursel"],
+    nearby: ["lievegem", "deinze", "maldegem", "eeklo"],
+    kenmerk: "een groeiende gemeente langs de E40 tussen Gent en Brugge",
+  },
+
+  // ── Arrondissement Oudenaarde (Vlaamse Ardennen) ─────────────────────
+  {
+    name: "Oudenaarde",
+    slug: "oudenaarde",
+    postal: "9700",
+    arr: "Oudenaarde",
+    deelgemeenten: [
+      "Bevere", "Eine", "Ename", "Edelare", "Heurne", "Leupegem",
+      "Mater", "Melden", "Mullem", "Nederename", "Volkegem", "Welden",
+    ],
+    nearby: ["kruisem", "wortegem-petegem", "zwalm", "kluisbergen", "maarkedal"],
+    kenmerk: "de hoofdstad van de Vlaamse Ardennen, bekend van de Ronde van Vlaanderen",
+  },
+  {
+    name: "Ronse",
+    slug: "ronse",
+    postal: "9600",
+    arr: "Oudenaarde",
+    deelgemeenten: [],
+    nearby: ["kluisbergen", "maarkedal", "brakel"],
+    kenmerk: "een textielstad tegen de taalgrens, omringd door de Vlaamse Ardennen",
+  },
+  {
+    name: "Kruisem",
+    slug: "kruisem",
+    postal: "9770",
+    arr: "Oudenaarde",
+    deelgemeenten: ["Kruishoutem", "Zingem", "Huise", "Lozer", "Nokere", "Ouwegem", "Wannegem-Lede"],
+    nearby: ["oudenaarde", "wortegem-petegem", "nazareth", "deinze"],
+    kenmerk: "een fusiegemeente (Kruishoutem en Zingem) in het hart van de Vlaamse Ardennen",
+  },
+  {
+    name: "Wortegem-Petegem",
+    slug: "wortegem-petegem",
+    postal: "9790",
+    arr: "Oudenaarde",
+    deelgemeenten: ["Elsegem", "Moregem", "Ooike"],
+    nearby: ["oudenaarde", "kruisem", "kluisbergen"],
+    kenmerk: "een landelijke gemeente langs de Schelde in de Vlaamse Ardennen",
+  },
+  {
+    name: "Zwalm",
+    slug: "zwalm",
+    postal: "9630",
+    arr: "Oudenaarde",
+    deelgemeenten: ["Munkzwalm", "Nederzwalm", "Sint-Maria-Latem", "Rozebeke", "Beerlegem", "Dikkele", "Hundelgem", "Meilegem", "Paulatem", "Roborst", "Sint-Blasius-Boekel"],
+    nearby: ["oudenaarde", "zottegem", "brakel", "horebeke"],
+    kenmerk: "een heuvelachtige gemeente met talrijke gehuchten in de Vlaamse Ardennen",
+  },
+  {
+    name: "Brakel",
+    slug: "brakel",
+    postal: "9660",
+    arr: "Oudenaarde",
+    deelgemeenten: ["Nederbrakel", "Opbrakel", "Elst", "Everbeek", "Michelbeke", "Parike", "Sint-Maria-Oudenhove", "Zegelsem"],
+    nearby: ["zwalm", "horebeke", "maarkedal", "geraardsbergen", "ronse"],
+    kenmerk: "een uitgesproken heuvelgemeente in het hart van de Vlaamse Ardennen",
+  },
+  {
+    name: "Horebeke",
+    slug: "horebeke",
+    postal: "9667",
+    arr: "Oudenaarde",
+    deelgemeenten: ["Sint-Kornelis-Horebeke", "Sint-Maria-Horebeke"],
+    nearby: ["brakel", "zwalm", "maarkedal", "oudenaarde"],
+    kenmerk: "een kleine gemeente in de Vlaamse Ardennen, bekend om haar protestantse geschiedenis",
+  },
+  {
+    name: "Maarkedal",
+    slug: "maarkedal",
+    postal: "9680",
+    arr: "Oudenaarde",
+    deelgemeenten: ["Maarke-Kerkem", "Nukerke", "Schorisse", "Etikhove"],
+    nearby: ["oudenaarde", "ronse", "brakel", "horebeke"],
+    kenmerk: "een landelijke heuvelgemeente met wielerklassiekers zoals de Koppenberg",
+  },
+  {
+    name: "Kluisbergen",
+    slug: "kluisbergen",
+    postal: "9690",
+    arr: "Oudenaarde",
+    deelgemeenten: ["Berchem", "Kwaremont", "Ruien", "Zulzeke"],
+    nearby: ["oudenaarde", "ronse", "wortegem-petegem"],
+    kenmerk: "een gemeente aan de Schelde met de bekende Kluisberg en Oude Kwaremont",
+  },
+  {
+    name: "Lierde",
+    slug: "lierde",
+    postal: "9570",
+    arr: "Oudenaarde",
+    deelgemeenten: ["Deftinge", "Hemelveerdegem", "Sint-Martens-Lierde", "Sint-Maria-Lierde"],
+    nearby: ["geraardsbergen", "brakel", "zottegem", "herzele"],
+    kenmerk: "een landelijke gemeente tussen Geraardsbergen en de Vlaamse Ardennen",
+  },
+  {
+    name: "Wetteren",
+    slug: "wetteren",
+    postal: "9230",
+    arr: "Dendermonde",
+    deelgemeenten: ["Massemen", "Westrem"],
+    nearby: ["wichelen", "lede", "melle", "destelbergen", "oosterzele"],
+    kenmerk: "onze thuisbasis: een Scheldegemeente met een bruisende kern, vlak bij Gent",
+  },
+];
+
+/**
+ * Unieke, aangescherpte SEO-content voor de tier-1/2 steden (hoogste volume).
+ * Verweven met zoektermen: spoed, buitengesloten, erkend, slot vervangen, in de buurt.
+ * Steden zonder eigen tekst vallen terug op de gegenereerde stadscontent.
+ */
+export const cityExtra: Record<string, string[]> = {
+  gent: [
+    "In het drukke Gent komen we dagelijks: van een student die zichzelf buitensluit in de Overpoort, tot gezinnen in Sint-Amandsberg, Gentbrugge of Wondelgem die na een verhuis hun cilinders willen vervangen. De vele oudere rijwoningen en appartementen hebben vaak verouderde cilindersloten, en net daarom is een snelle, erkende slotenmaker in Gent geen overbodige luxe.",
+    "Of u nu dringend buitengesloten staat in het centrum binnen de Gentse ring, of inbraakbeveiliging wil voor uw woning in een randwijk: we zijn doorgaans binnen 30 minuten ter plaatse en openen uw deur waar mogelijk schadevrij.",
+  ],
+  aalst: [
+    "Als slotenmaker in Aalst helpen we zowel in de dichte stadskern als in deelgemeenten zoals Erembodegem, Hofstade en Nieuwerkerken. De vele rij- en burgerwoningen rond het centrum hebben vaak sloten die aan vervanging toe zijn, zeker na een verhuis of een inbraakpoging.",
+    "Buitengesloten in Aalst, een sleutel afgebroken of een slot dat blokkeert? Bel onze wachtdienst: we komen snel ter plaatse, openen uw deur meestal zonder schade en spreken de prijs vooraf met u af.",
+  ],
+  "sint-niklaas": [
+    "Sint-Niklaas is het kloppende hart van het Waasland, met het grootste marktplein van Belgie. We zijn er actief in de stadskern en in Belsele, Sinaai en Nieuwkerken-Waas. Van een dringende buitensluiting tot het plaatsen van inbraakwerende cilinders: u kan op ons rekenen.",
+    "Door onze ligging bereiken we Sint-Niklaas en het hele Waasland snel. Erkend, schadevrij waar het kan en altijd met een eerlijke prijs vooraf.",
+  ],
+  dendermonde: [
+    "In Dendermonde, op de samenvloeiing van Dender en Schelde, werken we in het centrum en in deelgemeenten als Grembergen, Baasrode, Oudegem en Sint-Gillis. De mix van oudere binnenstadswoningen en nieuwere verkavelingen betekent uiteenlopende slottypes, wij hebben de juiste oplossing mee.",
+    "Buitengesloten of een defect slot in Dendermonde? Onze wachtdienst staat dag en nacht klaar en is doorgaans binnen het half uur bij u.",
+  ],
+  lokeren: [
+    "Lokeren, de Durmestad op de grens van het Waasland en het Gentse, bedienen we volledig, ook Eksaarde en Daknam. Van het schadevrij openen van een dichtgevallen deur tot het vervangen van een versleten cilinder.",
+    "Onze erkende slotenmakers zijn snel ter plaatse in heel Lokeren, 24 uur op 24, ook in het weekend.",
+  ],
+  deinze: [
+    "Deinze werd na de fusie met Nevele een uitgestrekte Leiestad met veel landelijke kernen zoals Astene, Landegem, Hansbeke en Zeveren. We bereiken ze allemaal en helpen u met buitensluitingen, slotvervanging en inbraakbeveiliging.",
+    "Een slot dat klemt of een sleutel die afbrak in Deinze? Wij komen snel langs en lossen het vakkundig op, tegen een eerlijke prijs.",
+  ],
+  ninove: [
+    "Als slotenmaker in Ninove zijn we actief langs de Dender en in deelgemeenten als Meerbeke, Okegem en Denderwindeke. Of het nu om een spoedopening of om gerichte inbraakbeveiliging gaat: we staan paraat.",
+    "Buitengesloten in Ninove? Bel onze wachtdienst, snel ter plaatse en schadevrij waar mogelijk.",
+  ],
+  oudenaarde: [
+    "Oudenaarde, hoofdstad van de Vlaamse Ardennen, bedienen we tot in deelgemeenten als Eine, Bevere en Ename. De streek combineert historische woningen met nieuwbouw, wij kennen de slottypes en het inbraakwerend materiaal dat erbij past.",
+    "Dringend een erkende slotenmaker nodig in Oudenaarde? We zijn snel ter plaatse en bespreken de prijs vooraf.",
+  ],
+  geraardsbergen: [
+    "In Geraardsbergen, de stad van de Muur en Manneken Pis, werken we in het centrum en de vele omliggende dorpen. Van een afgebroken sleutel tot het beveiligen van ramen en deuren.",
+    "Onze wachtdienst voor Geraardsbergen is 24/7 bereikbaar en komt doorgaans binnen 30 minuten ter plaatse.",
+  ],
+  wetteren: [
+    "Wetteren is onze thuisbasis. Dat betekent dat we hier en in Massemen en Westrem bliksemsnel ter plaatse zijn, vaak in enkele minuten. Of u nu buitengesloten staat, een slot wil vervangen of advies wil over inbraakbeveiliging.",
+    "Als lokale, erkende slotenmaker in Wetteren kennen we de buurt door en door en helpen we u met een eerlijke prijs en schadevrij waar het kan.",
+  ],
+  zottegem: [
+    "Zottegem, de Egmontstad, vormt een regionaal centrum in het zuiden van Oost-Vlaanderen. We helpen er bij buitensluitingen, slotvervanging en inbraakbeveiliging, tot in deelgemeenten als Strijpen en Velzeke.",
+    "Een slotenmaker nodig in Zottegem? Bel ons gerust, snel, vakkundig en met een prijs die we vooraf afspreken.",
+  ],
+  eeklo: [
+    "Eeklo is de hoofdstad van het Meetjesland. We zijn er snel ter plaatse voor dringende openingen en helpen u ook met het vervangen van sloten en het beter beveiligen van uw woning of handelszaak.",
+    "Buitengesloten of een defect slot in Eeklo? Onze erkende slotenmakers staan 24/7 voor u klaar.",
+  ],
+};
+
+// ── Helpers ───────────────────────────────────────────────────────────
+export const citiesBySlug: Record<string, City> = Object.fromEntries(
+  cities.map((c) => [c.slug, c]),
+);
+
+export function getCity(slug: string): City | undefined {
+  return citiesBySlug[slug];
+}
+
+export function allCitySlugs(): string[] {
+  return cities.map((c) => c.slug);
+}
+
+/** Belangrijkste steden voor navigatie en homepage-grid. */
+export const featuredCitySlugs = [
+  "gent", "aalst", "sint-niklaas", "dendermonde", "lokeren", "eeklo",
+  "oudenaarde", "wetteren", "deinze", "ninove", "geraardsbergen", "zottegem",
+];
+
+export function citiesSortedByName(): City[] {
+  return [...cities].sort((a, b) => a.name.localeCompare(b.name, "nl"));
+}
+
+/** Groepeer gemeenten per arrondissement (voor de "waar actief"-pagina). */
+export function citiesByArrondissement(): Record<string, City[]> {
+  const groups: Record<string, City[]> = {};
+  for (const c of citiesSortedByName()) {
+    (groups[c.arr] ??= []).push(c);
+  }
+  return groups;
+}

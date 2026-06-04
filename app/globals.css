@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   Slotenmaker Kristof Ponnet — Design tokens
+   Donkerblauw (vertrouwen) + amber (urgentie)
+   ───────────────────────────────────────────── */
+@theme {
+  --color-primary: #15314f;
+  --color-primary-dark: #0b1c30;
+  --color-primary-light: #1e477a;
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97f06;
+  --color-surface: #f6f8fb;
+  --color-border: #e2e8f0;
+  --color-foreground: #1e293b;
+  --color-muted: #5b6473;
+  --color-background: #ffffff;
+  --color-success: #16a34a;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Voorkom dat sticky CTA-balk content op mobiel afdekt */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 4rem;
+  }
+}

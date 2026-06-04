@@ -1,0 +1,51 @@
+export type Faq = { q: string; a: string };
+
+/** Algemene FAQ (homepage + FAQ-schema). */
+export const generalFaqs: Faq[] = [
+  {
+    q: "Hoe snel zijn jullie ter plaatse in Oost-Vlaanderen?",
+    a: "Bij een spoedoproep zijn we doorgaans binnen 30 minuten bij u. Onze wachtdienst bestrijkt heel Oost-Vlaanderen, 24 uur op 24 en 7 dagen op 7.",
+  },
+  {
+    q: "Openen jullie de deur zonder schade?",
+    a: "In de meeste gevallen wel. We gebruiken technieken om de deur schadevrij te openen. Enkel wanneer dat technisch niet lukt, bijvoorbeeld bij een geblokkeerd slot, boren we het slot open, en dat bespreken we altijd eerst met u.",
+  },
+  {
+    q: "Wat kost het om een deur te laten openen?",
+    a: "Voor een standaard buitensluiting overdag rekent u op 80 tot 120 euro, plus voorrijkosten. 's Avonds, 's nachts en in het weekend liggen de tarieven hoger. We geven u vooraf een duidelijke richtprijs.",
+  },
+  {
+    q: "Zijn jullie ook 's nachts en in het weekend bereikbaar?",
+    a: "Ja. Onze wachtdienst voor Oost-Vlaanderen is dag en nacht bereikbaar, ook op zon- en feestdagen. U belt een nummer.",
+  },
+  {
+    q: "Werken jullie met gecertificeerd, inbraakwerend materiaal?",
+    a: "Ja. We plaatsen gecertificeerde veiligheidssloten (o.a. SKG) die voldoen aan de voorwaarden van de meeste woningverzekeringen.",
+  },
+  {
+    q: "Krijg ik de prijs vooraf?",
+    a: "Altijd. We zijn transparant over voorrijkosten, tarieven en materiaal. Voor standaardgevallen geven we telefonisch een correcte richtprijs; duikt er ter plaatse een onverwachte moeilijkheid op, dan bespreken we dat eerst.",
+  },
+];
+
+/** Genereer stadspecifieke FAQ-vragen voor een stadspagina. */
+export function cityFaqs(cityName: string): Faq[] {
+  return [
+    {
+      q: `Hoe snel is de slotenmaker ter plaatse in ${cityName}?`,
+      a: `Vanuit onze uitvalsbasis in Wetteren bereiken we ${cityName} doorgaans binnen 30 minuten. Bij spoed komen we 24/7.`,
+    },
+    {
+      q: `Kan ik in ${cityName} ook 's nachts een slotenmaker bellen?`,
+      a: `Ja, onze wachtdienst voor ${cityName} en omgeving is dag en nacht bereikbaar, ook in het weekend en op feestdagen.`,
+    },
+    {
+      q: `Wat kost een slotenmaker in ${cityName}?`,
+      a: `De prijs in ${cityName} is dezelfde als in de rest van Oost-Vlaanderen: een eerlijke richtprijs die we vooraf met u afspreken, zonder verrassingen achteraf.`,
+    },
+    {
+      q: `Openen jullie de deur in ${cityName} zonder schade?`,
+      a: `In de meeste gevallen openen we uw deur in ${cityName} volledig schadevrij. Enkel als dat technisch niet lukt, bijvoorbeeld bij een geblokkeerd slot, boren we het slot open, en dat bespreken we altijd eerst met u.`,
+    },
+  ];
+}
