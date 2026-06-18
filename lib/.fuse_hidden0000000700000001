@@ -40,7 +40,6 @@ export function localBusinessLd(opts?: { cityName?: string; path?: string }) {
     telephone: site.phoneE164,
     priceRange: "€€",
     vatID: site.vat,
-    sameAs: [site.social.google].filter(Boolean),
     founder: { "@type": "Person", name: site.owner },
     address: {
       "@type": "PostalAddress",
