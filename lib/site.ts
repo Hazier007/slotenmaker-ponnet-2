@@ -7,14 +7,14 @@ export const site = {
   shortName: "Slotenmaker Ponnet",
   owner: "Kristof Ponnet",
   tagline: "Dé slotenmaker van Oost-Vlaanderen",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://slotenmaker-ponnet.be",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://slotenmakerponnet.be",
 
   // Contact (zelfde gegevens als de bestaande zaak)
   phone: "0468 11 33 99",
   phoneE164: "+32468113399",
   phoneLandline: "09 335 47 56",
   phoneLandlineE164: "+3293354756",
-  email: "info@slotenmaker-ponnet.be",
+  email: "info@slotenmakerponnet.be",
 
   // Vestiging
   city: "Wetteren",

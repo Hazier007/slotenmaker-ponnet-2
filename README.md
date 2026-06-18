@@ -1,4 +1,4 @@
-# Slotenmaker Kristof Ponnet — slotenmaker-ponnet.be
+# Slotenmaker Kristof Ponnet — slotenmakerponnet.be
 
 Snelle, SEO-geoptimaliseerde Next.js-site voor Slotenmaker Kristof Ponnet, gefocust op het **domineren van Oost-Vlaanderen** in de zoekresultaten.
 
@@ -34,7 +34,7 @@ Kopieer `.env.example` naar `.env.local` en vul in waar nodig:
 2. Echte Google-reviews in `lib/reviews.ts` (en `reviewCount`/`reviewRating` in `lib/site.ts`).
 3. Sociale profielen invullen in `lib/site.ts`.
 4. Google Business Profile koppelen + NAP overal identiek houden.
-5. Deployen op Vercel en domein `slotenmaker-ponnet.be` koppelen.
+5. Deployen op Vercel en domein `slotenmakerponnet.be` koppelen.
 
 ## Uitbreiden
 - Nieuwe gemeente? Voeg een object toe aan `lib/cities.ts` — pagina, sitemap en interne links volgen automatisch.

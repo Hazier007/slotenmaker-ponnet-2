@@ -22,7 +22,6 @@ export const pricing: PriceRow[] = [
 ];
 
 export const pricingNotes = [
-  "Alle vermelde prijzen zijn exclusief btw (21%, of 6% bij renovatie ouder dan 10 jaar).",
   "Voor standaardsituaties geven we in 95% van de gevallen telefonisch een correcte richtprijs.",
   "Voor renovatie aan een woning ouder dan 10 jaar geldt vaak het verlaagde btw-tarief van 6% bij levering én plaatsing door dezelfde aannemer.",
   "U krijgt de prijs steeds vooraf, zonder verrassingen achteraf. Een onverwachte moeilijkheid bespreken we eerst met u.",

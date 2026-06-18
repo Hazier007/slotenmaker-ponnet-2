@@ -12,7 +12,7 @@ export const generalFaqs: Faq[] = [
   },
   {
     q: "Wat kost het om een deur te laten openen?",
-    a: "Voor een standaard buitensluiting overdag rekent u op 80 tot 120 euro, plus voorrijkosten. 's Avonds, 's nachts en in het weekend liggen de tarieven hoger. We geven u vooraf een duidelijke richtprijs.",
+    a: "Voor een standaard buitensluiting overdag rekent u op 80 tot 145 euro, plus voorrijkosten vanaf 45 euro. 's Avonds, 's nachts en in het weekend liggen de tarieven hoger (120 tot 200 euro). Alle prijzen zijn exclusief btw; u krijgt vooraf een duidelijke richtprijs.",
   },
   {
     q: "Zijn jullie ook 's nachts en in het weekend bereikbaar?",
@@ -24,7 +24,7 @@ export const generalFaqs: Faq[] = [
   },
   {
     q: "Krijg ik de prijs vooraf?",
-    a: "Altijd. We zijn transparant over voorrijkosten, tarieven en materiaal. Voor standaardgevallen geven we telefonisch een correcte richtprijs; duikt er ter plaatse een onverwachte moeilijkheid op, dan bespreken we dat eerst.",
+    a: "Altijd. We zijn transparant over voorrijkosten, tarieven en materiaal. Alle prijzen zijn exclusief btw. Voor standaardgevallen geven we telefonisch een correcte richtprijs; duikt er ter plaatse een onverwachte moeilijkheid op, dan bespreken we dat eerst.",
   },
 ];
 
@@ -41,7 +41,7 @@ export function cityFaqs(cityName: string): Faq[] {
     },
     {
       q: `Wat kost een slotenmaker in ${cityName}?`,
-      a: `De prijs in ${cityName} is dezelfde als in de rest van Oost-Vlaanderen: een eerlijke richtprijs die we vooraf met u afspreken, zonder verrassingen achteraf.`,
+      a: `In ${cityName} rekent u op voorrijkosten vanaf 45 euro en een deur openen overdag op 80 tot 145 euro; 's avonds, 's nachts en in het weekend liggen de tarieven hoger (120 tot 200 euro). Alle prijzen zijn exclusief btw en we spreken ze vooraf met u af.`,
     },
     {
       q: `Openen jullie de deur in ${cityName} zonder schade?`,

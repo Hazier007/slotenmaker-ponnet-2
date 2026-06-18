@@ -56,7 +56,7 @@ export async function POST(req: Request) {
         method: "POST",
         headers: { Authorization: `Bearer ${resendKey}`, "Content-Type": "application/json" },
         body: JSON.stringify({
-          from: "Leads <leads@slotenmaker-ponnet.be>",
+          from: "Leads <leads@slotenmakerponnet.be>",
           to: [notify],
           subject: `Nieuwe lead: ${lead.situatie} (${lead.postcode})`,
           text: `Naam: ${lead.naam}\nTelefoon: ${lead.telefoon}\nE-mail: ${lead.email}\nPostcode: ${lead.postcode}\nSituatie: ${lead.situatie}\n\n${lead.beschrijving}`,
