@@ -14,7 +14,7 @@ export const site = {
   phoneE164: "+32468113399",
   phoneLandline: "09 335 47 56",
   phoneLandlineE164: "+3293354756",
-  email: "info@slotenmakerponnet.be",
+  email: "info@slotenmaker-ponnet.be",
 
   // Vestiging
   city: "Wetteren",
