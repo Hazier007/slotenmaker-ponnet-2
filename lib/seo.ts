@@ -103,3 +103,17 @@ export function serviceLd(opts: { name: string; description: string; path: strin
     serviceType: opts.name,
   };
 }
+
+export function articleLd(opts: { title: string; description: string; path: string; date: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: opts.title,
+    description: opts.description,
+    datePublished: opts.date,
+    dateModified: opts.date,
+    author: { "@type": "Person", name: site.owner },
+    publisher: { "@type": "Organization", name: site.name },
+    mainEntityOfPage: site.url + opts.path,
+  };
+}

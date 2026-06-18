@@ -5,13 +5,21 @@ import { useState } from "react";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
 
+const navLinks = [
+  { href: "/diensten", label: "Diensten" },
+  { href: "/werkgebied", label: "Werkgebied" },
+  { href: "/prijzen", label: "Prijzen" },
+  { href: "/blog", label: "Blog" },
+  { href: "/over-ons", label: "Over Kristof" },
+  { href: "/contact", label: "Contact" },
+];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-white font-bold">
             KP
@@ -22,23 +30,12 @@ export default function Header() {
           </span>
         </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden items-center gap-6 lg:flex">
-          <Link href="/diensten" className="text-sm font-medium text-foreground hover:text-primary">
-            Diensten
-          </Link>
-          <Link href="/werkgebied" className="text-sm font-medium text-foreground hover:text-primary">
-            Werkgebied
-          </Link>
-          <Link href="/prijzen" className="text-sm font-medium text-foreground hover:text-primary">
-            Prijzen
-          </Link>
-          <Link href="/over-ons" className="text-sm font-medium text-foreground hover:text-primary">
-            Over Kristof
-          </Link>
-          <Link href="/contact" className="text-sm font-medium text-foreground hover:text-primary">
-            Contact
-          </Link>
+          {navLinks.map((l) => (
+            <Link key={l.href} href={l.href} className="text-sm font-medium text-foreground hover:text-primary">
+              {l.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -48,7 +45,6 @@ export default function Header() {
           >
             Bel {site.phone}
           </a>
-          {/* Mobile toggle */}
           <button
             aria-label="Menu openen"
             onClick={() => setOpen((v) => !v)}
@@ -63,17 +59,10 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <nav className="border-t border-border bg-white px-4 py-3 lg:hidden">
           <ul className="space-y-1">
-            {[
-              { href: "/diensten", label: "Diensten" },
-              { href: "/werkgebied", label: "Werkgebied" },
-              { href: "/prijzen", label: "Prijzen" },
-              { href: "/over-ons", label: "Over Kristof" },
-              { href: "/contact", label: "Contact" },
-            ].map((l) => (
+            {navLinks.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}

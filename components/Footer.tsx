@@ -5,6 +5,7 @@ import { featuredCitySlugs, getCity } from "@/lib/cities";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const gmb = site.social.google;
   return (
     <footer className="bg-primary-dark text-white/80">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-4 lg:px-8">
@@ -30,6 +31,17 @@ export default function Footer() {
             <br />
             BTW {site.vat}
           </p>
+          {gmb && (
+            <a
+              href={gmb}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white/10 px-3 py-2 text-sm font-semibold text-white hover:bg-white/20"
+            >
+              <span className="text-accent">★ {site.reviewRating.toString().replace(".", ",")}</span>
+              {site.reviewCount} Google-reviews
+            </a>
+          )}
         </div>
 
         <div>
@@ -67,6 +79,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link href="/werkgebied" className="hover:text-accent">Volledig werkgebied</Link></li>
             <li><Link href="/prijzen" className="hover:text-accent">Prijzen</Link></li>
+            <li><Link href="/blog" className="hover:text-accent">Blog &amp; tips</Link></li>
             <li><Link href="/over-ons" className="hover:text-accent">Over Kristof Ponnet</Link></li>
             <li><Link href="/contact" className="hover:text-accent">Contact &amp; offerte</Link></li>
             <li><Link href="/privacy" className="hover:text-accent">Privacy &amp; cookies</Link></li>

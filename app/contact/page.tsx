@@ -10,6 +10,7 @@ export const metadata: Metadata = pageMeta({
 });
 
 export default function ContactPage() {
+  const gmb = site.social.google;
   return (
     <>
       <section className="bg-primary">
@@ -44,6 +45,17 @@ export default function ContactPage() {
                 <p className="mt-2"><a href={`mailto:${site.email}`} className="text-primary hover:underline">{site.email}</a></p>
               </div>
             </div>
+            {gmb && (
+              <div className="rounded-xl border border-border bg-surface p-5">
+                <p className="font-semibold text-primary">
+                  <span className="text-accent">★ {site.reviewRating.toString().replace(".", ",")}</span> op {site.reviewCount} Google-reviews
+                </p>
+                <p className="mt-1 text-sm text-muted">Bekijk wat klanten over ons zeggen, of laat zelf een review achter.</p>
+                <a href={gmb} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-light">
+                  Bekijk ons op Google
+                </a>
+              </div>
+            )}
           </div>
           <div>
             <LeadForm />
