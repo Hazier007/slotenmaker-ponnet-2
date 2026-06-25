@@ -78,6 +78,4 @@ export const pricingNotes = [
   "Alle vermelde prijzen zijn exclusief btw; het btw-tarief hangt af van de leeftijd van de woning.",
   "In elk tarief zit een forfait van 1 werkuur inbegrepen (incl. voorrijkosten heen & terug).",
   "U krijgt de prijs steeds vooraf, zonder verrassingen achteraf.",
-  "Bij annulatie wordt de voorrijkost aangerekend.",
-  "Op feestdagen hanteren we andere prijzen.",
 ];
