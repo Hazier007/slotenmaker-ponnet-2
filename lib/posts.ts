@@ -7,7 +7,7 @@ export type Post = {
   title: string;
   h1: string;
   description: string;
-  date: string; // ISO
+  date: string;
   readMinutes: number;
   keyword: string;
   excerpt: string;
@@ -22,37 +22,36 @@ export const posts: Post[] = [
     title: "Wat kost een slotenmaker in Oost-Vlaanderen? (tarieven 2026)",
     h1: "Wat kost een slotenmaker?",
     description:
-      "Een transparant overzicht van slotenmaker-tarieven in Oost-Vlaanderen: deur openen, slot vervangen, voorrijkosten en wat de prijs beïnvloedt. Alle bedragen excl. btw.",
+      "Een transparant overzicht van slotenmaker-tarieven in Oost-Vlaanderen: interventieprijs overdag, 's avonds en 's nachts, meerwerk en vervangstukken. Alle bedragen excl. btw.",
     date: "2026-06-18",
     readMinutes: 4,
     keyword: "wat kost een slotenmaker",
     excerpt:
-      "Voorrijkosten, deur openen overdag of 's nachts, een slot vervangen: dit zijn de realistische tarieven in Oost-Vlaanderen, en wat de prijs bepaalt.",
+      "Een interventie overdag, 's avonds of 's nachts, meerwerk en vervangstukken: dit zijn de duidelijke, vaste tarieven in Oost-Vlaanderen.",
     intro:
-      "De prijs van een slotenmaker hangt af van het tijdstip, het type slot en wat er precies moet gebeuren. Hieronder vindt u realistische richtprijzen voor Oost-Vlaanderen, zodat u nooit voor verrassingen komt te staan. Alle bedragen zijn exclusief btw.",
+      "De prijs van een slotenmaker hangt af van het tijdstip en wat er precies moet gebeuren. Wij werken met duidelijke interventietarieven waarin telkens de voorrijkosten en het eerste werkuur al inbegrepen zitten, zodat u nooit voor verrassingen komt te staan. Alle bedragen zijn exclusief btw.",
     sections: [
       {
-        heading: "Voorrijkosten en een deur laten openen",
+        heading: "Wat kost een interventie?",
         body: [
-          "Voor een dringende interventie rekent u in onze regio op voorrijkosten vanaf 45 euro. Het openen van een dichtgevallen deur overdag (op weekdagen tussen 8 en 18 uur) kost doorgaans 80 tot 145 euro.",
-          "'s Avonds, 's nachts en in het weekend liggen de tarieven hoger door de permanentie: reken dan op 120 tot 200 euro. Een seriueze slotenmaker geeft u dit vooraf, telefonisch of ter plaatse, nog voor het werk begint.",
+          "Een interventie overdag op een weekdag (8 tot 18 uur) kost 100 euro. In het weekend (8 tot 22 uur) of 's avonds (18 tot 22 uur) is dat 200 euro, en 's nachts (22 tot 8 uur) 250 euro.",
+          "In elk tarief zitten de voorrijkosten (heen en terug) en het eerste werkuur al inbegrepen. Heeft u overdag spoed nodig, dan kan dat voor 45 euro extra.",
         ],
       },
       {
         heading: "Een slot of cilinder vervangen",
         body: [
-          "Vaak volstaat het om enkel de cilinder te vervangen in plaats van het volledige slot, wat een stuk goedkoper is. Een cilinder vervangen start rond 75 euro (exclusief materiaal).",
-          "Wil u meteen veiliger? Een gecertificeerde veiligheidscilinder (met SKG-keurmerk) inclusief plaatsing kost afhankelijk van het type 150 tot 350 euro. Die voldoet aan de voorwaarden van de meeste woningverzekeringen.",
+          "Vaak volstaat het om enkel de cilinder te vervangen in plaats van het volledige slot, wat een stuk goedkoper is. Een cilinder vervangen start rond 75 euro.",
+          "Wil u meteen veiliger? Een gecertificeerde veiligheidscilinder (met SKG-keurmerk) kost vanaf 150 euro. Die voldoet aan de voorwaarden van de meeste woningverzekeringen.",
         ],
       },
       {
-        heading: "Welke factoren bepalen de prijs?",
-        body: ["De uiteindelijke prijs hangt af van enkele zaken:"],
+        heading: "Meerwerk en vervangstukken",
+        body: ["Naast de interventieprijs zijn er twee zaken die de eindprijs kunnen beïnvloeden:"],
         bullets: [
-          "Het tijdstip: weekdag overdag is goedkoper dan nacht, weekend of feestdag.",
-          "Schadevrij openen of niet: lukt schadevrij openen niet, dan kost uitboren extra.",
-          "Het type slot: een eenvoudig cilinderslot is goedkoper dan een meerpuntsslot.",
-          "Materiaal: de prijs van de cilinder of het slot zelf komt erbij.",
+          "Meerwerk: in elk tarief zit 1 werkuur inbegrepen; duurt het langer, dan rekenen we 75 euro per bijkomend uur.",
+          "Vervangstukken: een nieuwe cilinder of slot komt apart bij de interventieprijs.",
+          "Uitboren of frezen van een cilinder (als schadevrij openen niet lukt) valt onder meerwerk.",
         ],
       },
       {
@@ -66,11 +65,11 @@ export const posts: Post[] = [
     faqs: [
       {
         q: "Wat kost het openen van een dichtgevallen deur?",
-        a: "Overdag op een weekdag doorgaans 80 tot 145 euro plus voorrijkosten vanaf 45 euro. 's Nachts en in het weekend loopt dit op tot 200 euro. Alle bedragen excl. btw.",
+        a: "Overdag op een weekdag 100 euro, inclusief voorrijkosten en het eerste werkuur. In het weekend of 's avonds 200 euro, 's nachts 250 euro. Alle bedragen excl. btw.",
       },
       {
         q: "Is een slotenmaker duurder in het weekend?",
-        a: "Ja. Door de permanentie liggen avond-, nacht- en weekendtarieven hoger dan op een weekdag overdag.",
+        a: "Ja. Door de permanentie liggen weekend-, avond- en nachttarieven hoger dan op een weekdag overdag.",
       },
     ],
   },
@@ -150,7 +149,7 @@ export const posts: Post[] = [
       {
         heading: "Wat kost buitengesloten zijn?",
         body: [
-          "Overdag rekent u doorgaans op 80 tot 145 euro voor het openen, plus voorrijkosten vanaf 45 euro. 's Nachts en in het weekend ligt dat hoger. Alle bedragen exclusief btw, en steeds vooraf besproken.",
+          "Een interventie overdag op een weekdag kost 100 euro, inclusief voorrijkosten en het eerste werkuur. In het weekend, 's avonds of 's nachts loopt dit op tot 200 à 250 euro. Alle bedragen zijn exclusief btw en steeds vooraf besproken.",
         ],
       },
     ],

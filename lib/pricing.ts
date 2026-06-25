@@ -1,29 +1,81 @@
 /**
- * Indicatieve prijzen. Transparantie = vertrouwen én een sterk zoekwoord
- * ("slotenmaker prijs / tarief"). Pas bedragen aan naar de echte tarieven.
+ * Prijsmodel in pakketvorm (kaarten). Eén forfait van 1 werkuur inbegrepen,
+ * inclusief voorrijkosten (heen & terug). Alle bedragen EXCL. btw.
  */
 
-export type PriceRow = {
-  service: string;
+export type Pkg = {
+  name: string;
+  time: string;
+  days: string;
   price: string;
-  note?: string;
+  included: string[];
+  excluded: string[];
+  featured?: boolean;
 };
 
-export const pricing: PriceRow[] = [
-  { service: "Voorrijkosten (Oost-Vlaanderen)", price: "vanaf € 45", note: "binnen ± 30 min ter plaatse" },
-  { service: "Deur openen overdag (ma–vr, 8–18u)", price: "€ 80 – € 145", note: "schadevrij waar mogelijk" },
-  { service: "Deur openen 's avonds/nacht", price: "€ 120 – € 200", note: "spoed buiten kantooruren" },
-  { service: "Deur openen weekend", price: "€ 145 – € 200", note: "zaterdag & zondag" },
-  { service: "Cilinder vervangen", price: "vanaf € 75", note: "exclusief materiaal" },
-  { service: "Veiligheidscilinder (SKG) incl. plaatsing", price: "€ 150 – € 350", note: "afhankelijk van type" },
-  { service: "Slot uitboren (indien nodig)", price: "meerprijs op offerte", note: "enkel als schadevrij niet lukt" },
-  { service: "Sleutel bijmaken (standaard)", price: "vanaf € 8", note: "per sleutel" },
-  { service: "Inbraakbeveiliging / raambeveiliging", price: "gratis offerte op maat", note: "na risicoanalyse" },
+const baseIncl = [
+  "Straal van 30 km",
+  "Directe hulp 24/7",
+  "Noodopening",
+  "Inclusief 1ste werkuur",
+  "Inclusief voorrijkosten, brandstof & administratie",
+];
+
+export const packages: Pkg[] = [
+  {
+    name: "Dag interventie (week)",
+    time: "8u – 18u",
+    days: "ma – vrij",
+    price: "€ 100",
+    included: baseIncl,
+    excluded: ["Geen vervangstukken", "Geen meerwerk (>1u)", "Exclusief spoedservice (+ € 45)"],
+  },
+  {
+    name: "Dag interventie (weekend)",
+    time: "8u – 22u",
+    days: "za – zo",
+    price: "€ 200",
+    included: [...baseIncl, "Inclusief spoedservice"],
+    excluded: ["Geen vervangstukken", "Geen meerwerk (>1u)"],
+    featured: true,
+  },
+  {
+    name: "Avond interventie",
+    time: "18u – 22u",
+    days: "ma – zo",
+    price: "€ 200",
+    included: [...baseIncl, "Inclusief spoedservice"],
+    excluded: ["Geen vervangstukken", "Geen meerwerk (>1u)"],
+  },
+  {
+    name: "Nacht interventie",
+    time: "22u – 08u",
+    days: "ma – zo",
+    price: "€ 250",
+    included: [...baseIncl, "Inclusief spoedservice"],
+    excluded: ["Geen vervangstukken", "Geen meerwerk (>1u)"],
+  },
+];
+
+export type ExtraItem = { label: string; value: string };
+
+export const extraKosten: ExtraItem[] = [
+  { label: "Meerwerk per 60 minuten (na het 1ste uur)", value: "€ 75" },
+  { label: "Spoedservice overdag", value: "€ 45" },
+  { label: "Cilinder vervangen", value: "vanaf € 75" },
+  { label: "Veiligheidscilinder (SKG)", value: "vanaf € 150" },
+  { label: "Cilinder uitboren / frezen (indien nodig)", value: "zie meerwerk" },
+];
+
+export const btwInfo: ExtraItem[] = [
+  { label: "Woning ouder dan 10 jaar", value: "6%" },
+  { label: "Woning jonger dan 10 jaar / nieuwbouw", value: "21%" },
+  { label: "Bedrijf (BTW-plichtig)", value: "0% medecontractant" },
+  { label: "Bedrijf (niet BTW-plichtig)", value: "21%" },
 ];
 
 export const pricingNotes = [
-  "Alle vermelde prijzen zijn exclusief btw (21%, of 6% bij renovatie ouder dan 10 jaar).",
-  "Voor standaardsituaties geven we in 95% van de gevallen telefonisch een correcte richtprijs.",
-  "Voor renovatie aan een woning ouder dan 10 jaar geldt vaak het verlaagde btw-tarief van 6% bij levering én plaatsing door dezelfde aannemer.",
-  "U krijgt de prijs steeds vooraf, zonder verrassingen achteraf. Een onverwachte moeilijkheid bespreken we eerst met u.",
+  "Alle vermelde prijzen zijn exclusief btw; het btw-tarief hangt af van de leeftijd van de woning.",
+  "In elk tarief zit een forfait van 1 werkuur inbegrepen (incl. voorrijkosten heen & terug).",
+  "U krijgt de prijs steeds vooraf, zonder verrassingen achteraf.",
 ];

@@ -12,7 +12,7 @@ export const generalFaqs: Faq[] = [
   },
   {
     q: "Wat kost het om een deur te laten openen?",
-    a: "Voor een standaard buitensluiting overdag rekent u op 80 tot 145 euro, plus voorrijkosten vanaf 45 euro. 's Avonds, 's nachts en in het weekend liggen de tarieven hoger (120 tot 200 euro). Alle prijzen zijn exclusief btw; u krijgt vooraf een duidelijke richtprijs.",
+    a: "We werken met duidelijke interventietarieven waarin de voorrijkosten en het eerste werkuur al inbegrepen zitten. Overdag op een weekdag is dat 100 euro, in het weekend of 's avonds 200 euro en 's nachts 250 euro. Alle prijzen zijn exclusief btw en u kent ze vooraf.",
   },
   {
     q: "Zijn jullie ook 's nachts en in het weekend bereikbaar?",
@@ -23,8 +23,8 @@ export const generalFaqs: Faq[] = [
     a: "Ja. We plaatsen gecertificeerde veiligheidssloten (o.a. SKG) die voldoen aan de voorwaarden van de meeste woningverzekeringen.",
   },
   {
-    q: "Krijg ik de prijs vooraf?",
-    a: "Altijd. We zijn transparant over voorrijkosten, tarieven en materiaal. Alle prijzen zijn exclusief btw. Voor standaardgevallen geven we telefonisch een correcte richtprijs; duikt er ter plaatse een onverwachte moeilijkheid op, dan bespreken we dat eerst.",
+    q: "Zit er meerwerk of bijkomende kosten op?",
+    a: "In elk tarief zit een forfait van 1 werkuur inbegrepen. Duurt het werk langer, dan rekenen we meerwerk aan van 75 euro per bijkomend uur. Vervangstukken (zoals een nieuwe cilinder) komen er apart bij. We bespreken alles vooraf.",
   },
 ];
 
@@ -41,7 +41,7 @@ export function cityFaqs(cityName: string): Faq[] {
     },
     {
       q: `Wat kost een slotenmaker in ${cityName}?`,
-      a: `In ${cityName} rekent u op voorrijkosten vanaf 45 euro en een deur openen overdag op 80 tot 145 euro; 's avonds, 's nachts en in het weekend liggen de tarieven hoger (120 tot 200 euro). Alle prijzen zijn exclusief btw en we spreken ze vooraf met u af.`,
+      a: `In ${cityName} kost een interventie overdag op een weekdag 100 euro, inclusief voorrijkosten en het eerste werkuur. In het weekend of 's avonds is dat 200 euro en 's nachts 250 euro. Alle prijzen zijn exclusief btw en we spreken ze vooraf met u af.`,
     },
     {
       q: `Openen jullie de deur in ${cityName} zonder schade?`,
