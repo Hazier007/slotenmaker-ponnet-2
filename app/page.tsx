@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
-import { featuredCitySlugs, getCity, cities } from "@/lib/cities";
+import { featuredCitySlugs, getCity } from "@/lib/cities";
 import { generalFaqs } from "@/lib/faqs";
 import LeadForm from "@/components/LeadForm";
 import FAQ from "@/components/FAQ";
@@ -21,15 +21,15 @@ export default function Home() {
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
           <div className="max-w-3xl">
             <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-sm font-medium text-white">
-              <span className="h-2 w-2 rounded-full bg-accent" /> 24/7 wachtdienst · heel Oost-Vlaanderen
+              <span className="h-2 w-2 rounded-full bg-accent" /> Vanuit Wetteren · groot Gent en omgeving
             </p>
             <h1 className="mt-5 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-              Dé slotenmaker van Oost-Vlaanderen
+              Slotenmaker in Wetteren, Gent en omgeving
             </h1>
             <p className="mt-4 text-lg text-white/85 sm:text-xl">
-              Buitengesloten, slot kapot of sleutel afgebroken? {site.owner} en team
-              staan dag en nacht voor u klaar — doorgaans binnen 30 minuten ter plaatse
-              en in de meeste gevallen openen we uw deur volledig schadevrij.
+              Buitengesloten, slot kapot of sleutel afgebroken? Bel {site.owner} voor
+              de beschikbaarheid, verwachte aankomsttijd en een richtprijs. We proberen
+              uw deur waar mogelijk zonder schade te openen.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
@@ -46,7 +46,7 @@ export default function Home() {
               </a>
             </div>
             <ul className="mt-8 grid gap-2 text-sm text-white/85 sm:grid-cols-3">
-              <li className="flex items-center gap-2"><Check /> Binnen 30 min ter plaatse</li>
+              <li className="flex items-center gap-2"><Check /> Aankomsttijd vooraf besproken</li>
               <li className="flex items-center gap-2"><Check /> Schadevrij openen</li>
               <li className="flex items-center gap-2"><Check /> Eerlijke prijs vooraf</li>
             </ul>
@@ -94,11 +94,11 @@ export default function Home() {
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               ["Een echte, lokale vakman", `Geen anoniem callcenter: u krijgt ${site.owner} uit ${site.city} en zijn vast team aan de lijn. Lokaal, herkenbaar en aanspreekbaar.`],
-              ["Binnen 30 minuten ter plaatse", "Onze wachtdienst is verspreid over Oost-Vlaanderen, zodat we snel bij u zijn — waar u ook woont in de provincie."],
+              ["Duidelijke aankomsttijd", "We bespreken telefonisch wanneer we in uw gemeente beschikbaar zijn en wat de interventie kost."],
               ["Schadevrij waar het kan", "We openen de meeste deuren zonder schade. Boren is altijd de laatste optie en bespreken we eerst met u."],
               ["Eerlijke, transparante prijs", "U krijgt vooraf een duidelijke richtprijs. Geen misbruik van uw noodsituatie, geen verrassingen op de factuur."],
               ["Gecertificeerd materiaal", "We plaatsen inbraakwerend materiaal met SKG-keurmerk, conform de voorwaarden van de meeste verzekeringen."],
-              [`${site.yearsExperience}+ jaar ervaring`, "Van een simpele buitensluiting tot complexe inbraakbeveiliging: we kennen elk type slot en elke situatie."],
+              ["Hulp bij veel slotproblemen", "Van een buitensluiting tot advies over inbraakbeveiliging: we bespreken de passende oplossing voor uw situatie."],
             ].map(([t, d]) => (
               <div key={t} className="rounded-xl border border-border bg-surface p-6">
                 <div className="mb-3 text-2xl text-accent">✓</div>
@@ -117,7 +117,7 @@ export default function Home() {
           <div className="mt-8 grid gap-8 sm:grid-cols-3">
             {[
               ["1", "U belt of vult het formulier in", "Beschrijf kort uw situatie. Bij spoed bellen is het snelst."],
-              ["2", "Wij komen snel ter plaatse", "Doorgaans binnen 30 minuten, met de juiste materialen in de wagen."],
+              ["2", "Wij spreken een aankomsttijd af", "U hoort vooraf wanneer we kunnen komen en wat de richtprijs is."],
               ["3", "Opgelost tegen een eerlijke prijs", "We lossen het probleem op en u kent de prijs vooraf."],
             ].map(([n, t, d]) => (
               <div key={n} className="text-center">
@@ -138,12 +138,12 @@ export default function Home() {
               <h2 className="text-2xl font-bold">Vraag vrijblijvend advies of een offerte aan</h2>
               <p className="mt-4 text-white/80">
                 Laat uw gegevens achter en we nemen zo snel mogelijk contact op. Bij spoed
-                belt u ons uiteraard beter direct — dan staan we doorgaans binnen het half uur bij u.
+                belt u ons direct voor de actuele beschikbaarheid en aankomsttijd.
               </p>
               <p className="mt-6 text-lg font-semibold">
                 <a href={`tel:${site.phoneE164}`} className="hover:text-accent">📞 {site.phone}</a>
               </p>
-              <p className="mt-1 text-sm text-white/70">24/7 wachtdienst · heel Oost-Vlaanderen</p>
+              <p className="mt-1 text-sm text-white/70">Vanuit Wetteren · groot Gent en omgeving</p>
             </div>
             <LeadForm />
           </div>
@@ -171,7 +171,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-primary">Slotenmaker bij u in de buurt</h2>
           <p className="mt-2 text-muted">
-            Actief in heel Oost-Vlaanderen — {cities.length} steden en gemeenten. Een greep uit ons werkgebied:
+            Onze thuisregio is groot Wetteren en groot Gent. Bekijk de gemeenten waar u ons kunt bereiken:
           </p>
           <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {featuredCitySlugs.map((slug) => {

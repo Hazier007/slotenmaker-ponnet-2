@@ -24,7 +24,7 @@ export async function generateMetadata({
   if (!s) return {};
   return pageMeta({
     title: `${s.title} in Oost-Vlaanderen | ${site.shortName}`,
-    description: `${s.short} ${site.owner}, 24/7 in heel Oost-Vlaanderen. Bel ${site.phone}.`,
+    description: `${s.short} ${site.owner} werkt vanuit Wetteren in Gent en omgeving. Bel ${site.phone} voor beschikbaarheid en een richtprijs.`,
     path: `/diensten/${s.slug}`,
   });
 }
@@ -123,8 +123,12 @@ export default async function ServicePage({
 
       <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-primary">Indicatieve prijzen</h2>
-          <div className="mt-8"><CostTable /></div>
+          <h2 className="text-2xl font-bold text-primary">{s.slug === "sleutel-bijmaken" ? "Wat kost een sleutel bijmaken?" : "Indicatieve prijzen"}</h2>
+          {s.slug === "sleutel-bijmaken" ? (
+            <p className="mt-3 max-w-3xl text-muted">De prijs hangt af van het sleuteltype en een eventuele certificaatkaart. Bel ons voor een prijs en beschikbaarheid voordat u langskomt of een aanvraag indient.</p>
+          ) : (
+            <div className="mt-8"><CostTable /></div>
+          )}
         </div>
       </section>
 

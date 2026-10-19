@@ -8,7 +8,7 @@ export function CallToActionBand() {
         <div>
           <h2 className="text-2xl font-bold text-white">Dringend een slotenmaker nodig?</h2>
           <p className="mt-2 text-white/80">
-            Bel onze wachtdienst voor Oost-Vlaanderen — 24 uur op 24, ook in het weekend.
+            Bel ons voor de actuele beschikbaarheid, aankomsttijd en een richtprijs.
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">

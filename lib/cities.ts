@@ -665,13 +665,13 @@ export const cities: City[] = [
 
 /**
  * Unieke, aangescherpte SEO-content voor de tier-1/2 steden (hoogste volume).
- * Verweven met zoektermen: spoed, buitengesloten, erkend, slot vervangen, in de buurt.
+ * Aanvullende lokale informatie voor enkele steden.
  * Steden zonder eigen tekst vallen terug op de gegenereerde stadscontent.
  */
 export const cityExtra: Record<string, string[]> = {
   gent: [
-    "In het drukke Gent komen we dagelijks: van een student die zichzelf buitensluit in de Overpoort, tot gezinnen in Sint-Amandsberg, Gentbrugge of Wondelgem die na een verhuis hun cilinders willen vervangen. De vele oudere rijwoningen en appartementen hebben vaak verouderde cilindersloten, en net daarom is een snelle, erkende slotenmaker in Gent geen overbodige luxe.",
-    "Of u nu dringend buitengesloten staat in het centrum binnen de Gentse ring, of inbraakbeveiliging wil voor uw woning in een randwijk: we zijn doorgaans binnen 30 minuten ter plaatse en openen uw deur waar mogelijk schadevrij.",
+    "In Gent behandelen we aanvragen voor het centrum en deelgemeenten zoals Sint-Amandsberg, Gentbrugge en Wondelgem. Geef bij een buitensluiting aan of de deur alleen dichtgevallen is of ook op slot zit: dat bepaalt welke openingsmethode mogelijk is.",
+    "Wilt u na een verhuis een slot vervangen? Vaak volstaat een nieuwe cilinder. Vertel ons hoeveel deuren dezelfde sleutel moeten gebruiken en of u een certificaatkaart heeft; dan kunnen we het passende materiaal en een richtprijs bespreken.",
   ],
   aalst: [
     "Als slotenmaker in Aalst helpen we zowel in de dichte stadskern als in deelgemeenten zoals Erembodegem, Hofstade en Nieuwerkerken. De vele rij- en burgerwoningen rond het centrum hebben vaak sloten die aan vervanging toe zijn, zeker na een verhuis of een inbraakpoging.",
@@ -683,11 +683,11 @@ export const cityExtra: Record<string, string[]> = {
   ],
   dendermonde: [
     "In Dendermonde, op de samenvloeiing van Dender en Schelde, werken we in het centrum en in deelgemeenten als Grembergen, Baasrode, Oudegem en Sint-Gillis. De mix van oudere binnenstadswoningen en nieuwere verkavelingen betekent uiteenlopende slottypes, wij hebben de juiste oplossing mee.",
-    "Buitengesloten of een defect slot in Dendermonde? Onze wachtdienst staat dag en nacht klaar en is doorgaans binnen het half uur bij u.",
+    "Buitengesloten of een defect slot in Dendermonde? Bel met uw adres en situatie; we bespreken beschikbaarheid, aankomsttijd en richtprijs vooraf.",
   ],
   lokeren: [
     "Lokeren, de Durmestad op de grens van het Waasland en het Gentse, bedienen we volledig, ook Eksaarde en Daknam. Van het schadevrij openen van een dichtgevallen deur tot het vervangen van een versleten cilinder.",
-    "Onze erkende slotenmakers zijn snel ter plaatse in heel Lokeren, 24 uur op 24, ook in het weekend.",
+    "Bel voor de actuele beschikbaarheid in Lokeren en vraag vooraf welke interventieprijs voor uw situatie geldt.",
   ],
   deinze: [
     "Deinze werd na de fusie met Nevele een uitgestrekte Leiestad met veel landelijke kernen zoals Astene, Landegem, Hansbeke en Zeveren. We bereiken ze allemaal en helpen u met buitensluitingen, slotvervanging en inbraakbeveiliging.",
@@ -699,15 +699,15 @@ export const cityExtra: Record<string, string[]> = {
   ],
   oudenaarde: [
     "Oudenaarde, hoofdstad van de Vlaamse Ardennen, bedienen we tot in deelgemeenten als Eine, Bevere en Ename. De streek combineert historische woningen met nieuwbouw, wij kennen de slottypes en het inbraakwerend materiaal dat erbij past.",
-    "Dringend een erkende slotenmaker nodig in Oudenaarde? We zijn snel ter plaatse en bespreken de prijs vooraf.",
+    "Dringend hulp nodig in Oudenaarde? Bel voor de actuele beschikbaarheid en een richtprijs vooraf.",
   ],
   geraardsbergen: [
     "In Geraardsbergen, de stad van de Muur en Manneken Pis, werken we in het centrum en de vele omliggende dorpen. Van een afgebroken sleutel tot het beveiligen van ramen en deuren.",
-    "Onze wachtdienst voor Geraardsbergen is 24/7 bereikbaar en komt doorgaans binnen 30 minuten ter plaatse.",
+    "Bel voor de actuele beschikbaarheid in Geraardsbergen; de verwachte aankomsttijd hangt af van uw locatie en de lopende opdrachten.",
   ],
   wetteren: [
-    "Wetteren is onze thuisbasis. Dat betekent dat we hier en in Massemen en Westrem bliksemsnel ter plaatse zijn, vaak in enkele minuten. Of u nu buitengesloten staat, een slot wil vervangen of advies wil over inbraakbeveiliging.",
-    "Als lokale, erkende slotenmaker in Wetteren kennen we de buurt door en door en helpen we u met een eerlijke prijs en schadevrij waar het kan.",
+    "Wetteren is onze thuisbasis. Ook vanuit Massemen en Westrem kunt u ons bellen voor een buitensluiting, een defect slot of de vervanging van een cilinder. De aankomsttijd spreken we per opdracht met u af.",
+    "Een dichtgevallen deur vraagt vaak een andere aanpak dan een deur die op slot zit. Geef dat bij uw oproep door, samen met uw postcode; dan kunnen we de mogelijkheden en de toepasselijke interventieprijs vooraf uitleggen.",
   ],
   zottegem: [
     "Zottegem, de Egmontstad, vormt een regionaal centrum in het zuiden van Oost-Vlaanderen. We helpen er bij buitensluitingen, slotvervanging en inbraakbeveiliging, tot in deelgemeenten als Strijpen en Velzeke.",
@@ -715,7 +715,7 @@ export const cityExtra: Record<string, string[]> = {
   ],
   eeklo: [
     "Eeklo is de hoofdstad van het Meetjesland. We zijn er snel ter plaatse voor dringende openingen en helpen u ook met het vervangen van sloten en het beter beveiligen van uw woning of handelszaak.",
-    "Buitengesloten of een defect slot in Eeklo? Onze erkende slotenmakers staan 24/7 voor u klaar.",
+    "Buitengesloten of een defect slot in Eeklo? Bel om de mogelijkheden, beschikbaarheid en kosten te bespreken.",
   ],
 };
 
@@ -734,8 +734,9 @@ export function allCitySlugs(): string[] {
 
 /** Belangrijkste steden voor navigatie en homepage-grid. */
 export const featuredCitySlugs = [
-  "gent", "aalst", "sint-niklaas", "dendermonde", "lokeren", "eeklo",
-  "oudenaarde", "wetteren", "deinze", "ninove", "geraardsbergen", "zottegem",
+  "wetteren", "gent", "melle", "merelbeke", "destelbergen", "lochristi",
+  "de-pinte", "wichelen", "oosterzele", "evergem", "wondelgem",
+  "sint-amandsberg", "gentbrugge", "zwijnaarde",
 ];
 
 export function citiesSortedByName(): City[] {

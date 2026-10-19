@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { site } from "@/lib/site";
+import { ANALYTICS_LEAD_EVENT } from "@/lib/analytics-events";
 
 const situaties = [
   "Buitengesloten / deur openen",
@@ -31,6 +32,7 @@ export default function LeadForm({ defaultCity = "" }: { defaultCity?: string })
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error("fail");
+      window.dispatchEvent(new Event(ANALYTICS_LEAD_EVENT));
       setStatus("ok");
       form.reset();
     } catch {

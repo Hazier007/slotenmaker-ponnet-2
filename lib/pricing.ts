@@ -15,7 +15,7 @@ export type Pkg = {
 
 const baseIncl = [
   "Straal van 30 km",
-  "Directe hulp 24/7",
+  "Beschikbaarheid telefonisch bevestigd",
   "Noodopening",
   "Inclusief 1ste werkuur",
   "Inclusief voorrijkosten, brandstof & administratie",

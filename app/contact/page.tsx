@@ -5,7 +5,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Contact & offerte — slotenmaker Oost-Vlaanderen",
-  description: `Contacteer ${site.name}. 24/7 wachtdienst in heel Oost-Vlaanderen. Bel ${site.phone} of vraag een vrijblijvende offerte aan.`,
+  description: `Contacteer ${site.name} vanuit Wetteren. Bel ${site.phone} voor beschikbaarheid, aankomsttijd en richtprijs of vraag een vrijblijvende offerte aan.`,
   path: "/contact",
 });
 
@@ -28,7 +28,7 @@ export default function ContactPage() {
           <div className="space-y-6">
             <div>
               <h2 className="text-xl font-bold text-primary">Bel onze wachtdienst</h2>
-              <p className="mt-2 text-muted">24 uur op 24, 7 dagen op 7 — heel Oost-Vlaanderen.</p>
+              <p className="mt-2 text-muted">Bel voor de actuele beschikbaarheid en verwachte aankomsttijd.</p>
               <p className="mt-3 text-2xl font-bold">
                 <a href={`tel:${site.phoneE164}`} className="text-primary hover:text-accent">{site.phone}</a>
               </p>
@@ -48,7 +48,7 @@ export default function ContactPage() {
             {gmb && (
               <div className="rounded-xl border border-border bg-surface p-5">
                 <p className="font-semibold text-primary">
-                  <span className="text-accent">★ {site.reviewRating.toString().replace(".", ",")}</span> op {site.reviewCount} Google-reviews
+                  Klantreviews op Google
                 </p>
                 <p className="mt-1 text-sm text-muted">Bekijk wat klanten over ons zeggen, of laat zelf een review achter.</p>
                 <a href={gmb} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-light">

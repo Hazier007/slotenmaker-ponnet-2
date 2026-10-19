@@ -33,11 +33,6 @@ export const site = {
     google: "https://maps.app.goo.gl/rrbsqFFYuYDVZ3QK6",
   },
 
-  // Vertrouwenscijfers (pas aan naar realiteit)
-  yearsExperience: 12,
-  responseMinutes: 30,
-  reviewRating: 4.9,
-  reviewCount: 347,
 } as const;
 
 export type Site = typeof site;

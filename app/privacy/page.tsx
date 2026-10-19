@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
+import CookieSettingsButton from "@/components/CookieSettingsButton";
 
 export const metadata: Metadata = pageMeta({
   title: "Privacy & cookies",
@@ -31,6 +32,7 @@ export default function PrivacyPage() {
           toestemming, analytische cookies om het gebruik van de site te meten. U kunt uw
           keuze op elk moment aanpassen.
         </p>
+        <p><CookieSettingsButton /></p>
         <h2 className="text-xl font-bold text-primary">Uw rechten</h2>
         <p>
           U heeft het recht om uw gegevens in te kijken, te laten corrigeren of te laten

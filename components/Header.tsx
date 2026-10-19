@@ -26,7 +26,7 @@ export default function Header() {
           </span>
           <span className="leading-tight">
             <span className="block font-bold text-primary">Slotenmaker Ponnet</span>
-            <span className="block text-xs text-muted">Oost-Vlaanderen · 24/7</span>
+            <span className="block text-xs text-muted">Wetteren · Gent · omgeving</span>
           </span>
         </Link>
 

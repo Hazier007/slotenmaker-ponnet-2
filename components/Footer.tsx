@@ -17,8 +17,8 @@ export default function Footer() {
             <span className="font-bold text-white">Slotenmaker Ponnet</span>
           </div>
           <p className="mt-4 text-sm">
-            {site.tagline}. {site.owner} en team helpen u 24/7 met buitensluitingen,
-            slotvervanging en inbraakbeveiliging in heel Oost-Vlaanderen.
+            {site.owner} en team helpen vanuit Wetteren met buitensluitingen,
+            slotvervanging en inbraakbeveiliging in groot Wetteren, groot Gent en omgeving.
           </p>
           <p className="mt-4 text-sm">
             <a href={`tel:${site.phoneE164}`} className="font-semibold text-white hover:text-accent">
@@ -38,8 +38,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white/10 px-3 py-2 text-sm font-semibold text-white hover:bg-white/20"
             >
-              <span className="text-accent">★ {site.reviewRating.toString().replace(".", ",")}</span>
-              {site.reviewCount} Google-reviews
+              Bekijk reviews op Google
             </a>
           )}
         </div>
@@ -90,7 +89,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-4 text-xs sm:flex-row sm:px-6 lg:px-8">
           <p>© {year} {site.name} · BTW {site.vat}</p>
-          <p>Slotenmaker met wachtdienst voor heel Oost-Vlaanderen</p>
+          <p>Slotenmaker vanuit Wetteren voor Gent en omgeving</p>
         </div>
       </div>
     </footer>

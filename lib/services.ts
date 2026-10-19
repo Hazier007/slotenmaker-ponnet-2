@@ -19,10 +19,10 @@ export const services: Service[] = [
     slug: "depannage",
     title: "Depannage & deur openen",
     h1: "Depannage: buitengesloten of slot kapot?",
-    short: "Buitengesloten, sleutel afgebroken of slot defect? Wij openen uw deur schadevrij, 24/7.",
+    short: "Buitengesloten, sleutel afgebroken of slot defect? Bel voor hulp en een richtprijs vooraf.",
     keyword: "slotenmaker depannage",
     intro:
-      "Buitengesloten? Sleutel afgebroken in het slot? Of krijgt u de deur plots niet meer open? Bel ons gerust — als slotenmaker met wachtdienst in Oost-Vlaanderen zijn we 24 uur op 24 bereikbaar en staan we doorgaans binnen het half uur bij u. In de meeste gevallen openen we uw deur volledig schadevrij, zodat u geen nieuw slot nodig heeft.",
+      "Buitengesloten? Sleutel afgebroken in het slot? Of krijgt u de deur plots niet meer open? Bel ons met uw postcode en vertel of de deur dichtgevallen of op slot is. We geven de beschikbaarheid, verwachte aankomsttijd en een richtprijs door. Waar mogelijk openen we zonder schade, zodat een nieuw slot niet nodig is.",
     sections: [
       {
         heading: "Schadevrij openen waar het kan",
@@ -30,7 +30,11 @@ export const services: Service[] = [
       },
       {
         heading: "Ook 's nachts en in het weekend",
-        body: "Een slotprobleem houdt zich niet aan kantooruren. Onze wachtdienst voor Oost-Vlaanderen is daarom dag en nacht, ook op zon- en feestdagen, bereikbaar. U belt één nummer en wij komen ter plaatse.",
+        body: "Bij spoed belt u direct. We bevestigen telefonisch of er iemand beschikbaar is, wanneer die kan komen en welk interventietarief voor het tijdstip geldt. Op feestdagen kunnen andere tarieven van toepassing zijn.",
+      },
+      {
+        heading: "Wat kost het openen van een deur?",
+        body: "Het interventietarief overdag op een weekdag start op € 100 exclusief btw. In het weekend of 's avonds is het € 200 en 's nachts € 250. Binnen de vermelde straal van 30 km zijn de voorrijkosten en het eerste werkuur inbegrepen. Vervangstukken en extra werk komen er zo nodig bij; we bespreken dit vooraf.",
       },
     ],
     bullets: [
@@ -49,6 +53,10 @@ export const services: Service[] = [
     intro:
       "Een versleten cilinder, een defect meerpuntsslot of gewoon nood aan meer zekerheid na een verhuis of inbraak? Wij vervangen alle types sloten door kwalitatief, inbraakwerend materiaal en plaatsen het vakkundig. Zo bent u zeker dat de nieuwe sleutel enkel bij u ligt.",
     sections: [
+      {
+        heading: "Wat kost een cilinder vervangen?",
+        body: "Een standaardcilinder staat in onze prijslijst vanaf € 75 exclusief btw en een veiligheidscilinder vanaf € 150. De interventie en eventueel meerwerk kunnen daar bijkomen. We vragen naar het type slot en bespreken de totale richtprijs voordat we materiaal plaatsen.",
+      },
       {
         heading: "Welke sloten vervangen we?",
         body: "Insteeksloten, oplegsloten, veiligheidscilinders, meerpuntssloten en cilindersloten met certificaat. We werken met gecertificeerd, inbraakwerend materiaal (o.a. SKG-keurmerk) dat voldoet aan de eisen van de meeste verzekeringen.",
@@ -97,8 +105,12 @@ export const services: Service[] = [
     short: "Extra sleutels nodig? Wij maken huis-, veiligheids- en kluissleutels nauwkeurig bij.",
     keyword: "sleutel bijmaken",
     intro:
-      "Een extra sleutel voor een gezinslid, de poetshulp of gewoon als reserve? Wij maken sleutels nauwkeurig bij — van gewone huissleutels tot beveiligde sleutels met certificaat die enkel met bewijs van eigendom gekopieerd mogen worden.",
+      "Een extra sleutel voor een gezinslid, de poetshulp of gewoon als reserve? Vraag vooraf of uw sleuteltype kan worden bijgemaakt en welk bewijs of welke certificaatkaart nodig is. De prijs hangt af van het type sleutel en staat los van onze interventietarieven voor noodopeningen.",
     sections: [
+      {
+        heading: "Prijs en beschikbaarheid vooraf controleren",
+        body: "Voor sleutelduplicatie is er geen vaste prijs voor elk sleuteltype. Bel met het merk of een foto van de sleutel en vraag vooraf naar de mogelijkheden, de prijs en de afhaalmethode. Stuur geen foto van een certificaatkaart via een openbaar kanaal.",
+      },
       {
         heading: "Ook beveiligde sleutels",
         body: "Veiligheidssleutels met patent kunnen niet zomaar bij een gewone sleutelmaker worden gekopieerd. Wij regelen de duplicatie correct, met de nodige certificaatkaart, zodat uw beveiliging gegarandeerd blijft.",
@@ -160,7 +172,7 @@ export const services: Service[] = [
     short: "Sleutel in de auto laten liggen of autosleutel kwijt? Wij openen uw wagen schadevrij.",
     keyword: "auto openen zonder sleutel",
     intro:
-      "Sleutel in de auto laten liggen, autosleutel kwijt of de centrale vergrendeling die dichtviel met de sleutel binnen? Vervelend, maar geen reden om een ruit in te slaan. Wij openen uw wagen in de meeste gevallen volledig schadevrij, snel en ter plaatse in heel Oost-Vlaanderen.",
+      "Sleutel in de auto laten liggen, autosleutel kwijt of de centrale vergrendeling die dichtviel met de sleutel binnen? Vervelend, maar geen reden om een ruit in te slaan. Bel met uw locatie en automodel; we bespreken de mogelijkheden, beschikbaarheid en richtprijs vooraf.",
     sections: [
       {
         heading: "Schadevrij, voor zo goed als elk merk",
@@ -175,7 +187,7 @@ export const services: Service[] = [
       "Sleutel in de auto laten liggen",
       "Autosleutel kwijt of gebroken",
       "Schadevrij openen van personen- en bestelwagens",
-      "Snel ter plaatse, 24/7",
+      "Aankomsttijd telefonisch bevestigd",
     ],
   },
   {

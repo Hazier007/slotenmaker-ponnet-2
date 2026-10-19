@@ -7,7 +7,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Onze diensten — slotenmaker Oost-Vlaanderen",
-  description: `Alle diensten van ${site.name}: deur openen, slot vervangen, inbraakbeveiliging, sleutel bijmaken en meer. 24/7 in heel Oost-Vlaanderen.`,
+  description: `Alle diensten van ${site.name}: deur openen, slot vervangen, inbraakbeveiliging, sleutel bijmaken en meer. Vanuit Wetteren voor Gent en omgeving.`,
   path: "/diensten",
 });
 

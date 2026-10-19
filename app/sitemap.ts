@@ -5,35 +5,29 @@ import { services } from "@/lib/services";
 import { posts } from "@/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   const base = site.url;
+  // Bij volgende inhoudelijke wijzigingen per URL aanpassen; geen buildtijd als wijzigingsdatum.
+  const changedOn = new Date("2026-10-19");
+  const changedStaticPaths = new Set(["", "/diensten", "/werkgebied", "/over-ons", "/contact"]);
 
-  const staticPaths = ["", "/diensten", "/werkgebied", "/prijzen", "/blog", "/over-ons", "/contact", "/privacy"];
+  const staticPaths = ["", "/diensten", "/werkgebied", "/prijzen", "/blog", "/over-ons", "/contact"];
 
   return [
     ...staticPaths.map((p) => ({
       url: base + p,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: p === "" ? 1 : 0.7,
+      ...(changedStaticPaths.has(p) ? { lastModified: changedOn } : {}),
     })),
     ...services.map((s) => ({
       url: `${base}/diensten/${s.slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
+      lastModified: changedOn,
     })),
     ...posts.map((p) => ({
       url: `${base}/blog/${p.slug}`,
-      lastModified: new Date(p.date),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
+      lastModified: new Date(p.modified ?? p.date),
     })),
     ...allCitySlugs().map((slug) => ({
       url: `${base}/slotenmaker/${slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
+      lastModified: changedOn,
     })),
   ];
 }

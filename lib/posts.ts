@@ -8,6 +8,7 @@ export type Post = {
   h1: string;
   description: string;
   date: string;
+  modified?: string;
   readMinutes: number;
   keyword: string;
   excerpt: string;
@@ -24,6 +25,7 @@ export const posts: Post[] = [
     description:
       "Een transparant overzicht van slotenmaker-tarieven in Oost-Vlaanderen: interventieprijs overdag, 's avonds en 's nachts, meerwerk en vervangstukken. Alle bedragen excl. btw.",
     date: "2026-06-18",
+    modified: "2026-10-19",
     readMinutes: 4,
     keyword: "wat kost een slotenmaker",
     excerpt:
@@ -57,7 +59,7 @@ export const posts: Post[] = [
       {
         heading: "Pas op voor malafide slotenmakers",
         body: [
-          "Sommige spelers misbruiken uw noodsituatie met torenhoge facturen voor goedkoop materiaal. Vraag daarom altijd vooraf een richtprijs en kies voor een lokale, erkende slotenmaker met echte reviews.",
+          "Sommige spelers misbruiken uw noodsituatie met torenhoge facturen voor goedkoop materiaal. Vraag daarom altijd vooraf een richtprijs en kies voor een slotenmaker met controleerbare bedrijfsgegevens en echte reviews.",
           "Bekijk ons volledige, transparante prijsoverzicht op de prijzenpagina, of bel ons gerust voor een vrijblijvende richtprijs.",
         ],
       },
@@ -125,6 +127,7 @@ export const posts: Post[] = [
     description:
       "Buitengesloten thuis of op het werk? Blijf kalm, forceer niets en lees hoe een slotenmaker uw deur snel en schadevrij opent in Oost-Vlaanderen.",
     date: "2026-06-18",
+    modified: "2026-10-19",
     readMinutes: 3,
     keyword: "buitengesloten",
     excerpt:
@@ -142,7 +145,7 @@ export const posts: Post[] = [
       {
         heading: "Bel een slotenmaker in uw buurt",
         body: [
-          "Een lokale slotenmaker is doorgaans binnen 30 minuten ter plaatse en opent de meeste deuren volledig schadevrij. U hoeft dus meestal geen nieuw slot te laten plaatsen.",
+          "Vraag aan de telefoon naar de verwachte aankomsttijd. Bij een dichtgevallen deur is openen zonder vervanging van het slot vaak mogelijk; een geblokkeerd slot kan een andere aanpak vragen.",
           "Vraag bij het bellen meteen naar een richtprijs en de verwachte aanrijtijd, zodat u weet waar u aan toe bent.",
         ],
       },
@@ -156,7 +159,7 @@ export const posts: Post[] = [
     faqs: [
       {
         q: "Hoe snel is een slotenmaker ter plaatse als ik buitengesloten ben?",
-        a: "In Oost-Vlaanderen doorgaans binnen 30 minuten. Onze wachtdienst is 24/7 bereikbaar, ook 's nachts en in het weekend.",
+        a: "De aankomsttijd hangt af van uw locatie en de lopende opdrachten. Bel met uw postcode om de beschikbaarheid en verwachte aankomsttijd te bespreken.",
       },
       {
         q: "Wordt mijn deur beschadigd bij het openen?",

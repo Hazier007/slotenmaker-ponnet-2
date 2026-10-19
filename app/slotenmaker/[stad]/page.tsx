@@ -25,8 +25,8 @@ export async function generateMetadata({
   const city = getCity(stad);
   if (!city) return {};
   return pageMeta({
-    title: `Slotenmaker ${city.name} | 24/7 spoed · erkend · binnen 30 min`,
-    description: `Slotenmaker nodig in ${city.name}? Buitengesloten, slot kapot of vervangen? ${site.owner} is een erkende slotenmaker, 24/7 ter plaatse in ${city.name}. Schadevrij openen, eerlijke prijs. Bel ${site.phone}.`,
+    title: `Slotenmaker ${city.name} | Deur openen en slot vervangen`,
+    description: `Slotenmaker nodig in ${city.name}? ${site.owner} helpt bij buitensluiting, een defect slot en cilindervervanging. Bel ${site.phone} voor beschikbaarheid en een richtprijs.`,
     path: `/slotenmaker/${city.slug}`,
   });
 }
@@ -78,9 +78,9 @@ export default async function CityPage({
             Slotenmaker {city.name}
           </h1>
           <p className="mt-4 max-w-3xl text-lg text-white/85">
-            Dringend een erkende slotenmaker nodig in {city.name}? {site.owner} helpt u 24/7 —
-            doorgaans binnen 30 minuten ter plaatse, en in de meeste gevallen openen we uw deur
-            volledig schadevrij.
+            Buitengesloten of een slot defect in {city.name}? Bel {site.owner} voor de
+            beschikbaarheid, de verwachte aankomsttijd en een richtprijs. We bekijken eerst
+            of de deur zonder schade open kan.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <a href={`tel:${site.phoneE164}`} className="rounded-lg bg-accent px-8 py-4 text-center font-semibold text-white hover:bg-accent-hover">
@@ -100,8 +100,9 @@ export default async function CityPage({
             <h2 className="text-2xl font-bold text-primary">Uw slotenmaker in {city.name}</h2>
             <p className="text-muted">
               {city.name} is {city.kenmerk}. Of u nu plots buitenstaat, een afgebroken sleutel
-              uit het slot moet halen of na een verhuis nieuwe cilinders wil: als erkende, lokale
-              slotenmaker kennen we {city.name} goed en zijn we snel ter plaatse.
+              uit het slot moet halen of na een verhuis nieuwe cilinders wil: vertel ons bij uw
+              oproep waar u zich bevindt en welk type deur of slot het betreft. Zo kunnen we
+              meteen aangeven welke hulp mogelijk is.
             </p>
 
             {extra.map((p, i) => (
@@ -111,9 +112,9 @@ export default async function CityPage({
             <h3 className="pt-2 text-xl font-bold text-primary">Buitengesloten in {city.name}?</h3>
             <p className="text-muted">
               Deur achter u dichtgetrokken met de sleutel nog binnen, of sleutel afgebroken in het
-              slot? Blijf niet in de kou staan: onze 24/7-wachtdienst voor {city.name} is er snel
-              bij en opent uw deur in de meeste gevallen volledig schadevrij. Zo hoeft u meestal
-              geen nieuw slot te laten plaatsen.
+              slot? Forceer de deur liever niet. Bel ons met uw adres en een korte beschrijving;
+              we bespreken de aanpak en de verwachte kosten voordat we vertrekken. Vaak kan een
+              dichtgevallen deur zonder vervanging van het slot open.
             </p>
 
             {heeftDeelgemeenten && (
@@ -142,10 +143,11 @@ export default async function CityPage({
 
             <h3 className="pt-2 text-xl font-bold text-primary">Snel én schadevrij in {city.name}</h3>
             <p className="text-muted">
-              Onze wachtdienst is verspreid over Oost-Vlaanderen, waardoor we {city.name}
-              {nearby.length > 0 ? ` en buurgemeenten als ${joinNl(nearby.slice(0, 3).map((c) => c.name))}` : ""} snel
-              bereiken. In de meeste gevallen openen we uw deur zonder schade. Lukt schadevrij openen
-              technisch niet, dan bespreken we de meerkost altijd eerst met u.
+              We behandelen aanvragen in {city.name}
+              {nearby.length > 0 ? ` en buurgemeenten als ${joinNl(nearby.slice(0, 3).map((c) => c.name))}` : ""}.
+              De aankomsttijd hangt af van de locatie en de lopende opdrachten. In de meeste gevallen
+              proberen we de deur zonder schade te openen. Als boren nodig blijkt, bespreken we
+              eerst de aanpak en de mogelijke meerkost.
             </p>
           </div>
         </div>
@@ -159,7 +161,7 @@ export default async function CityPage({
               <h2 className="text-2xl font-bold">Slotenmaker {city.name} aanvragen</h2>
               <p className="mt-4 text-white/80">
                 Vul uw gegevens in, dan nemen we snel contact op. Spoed in {city.name}? Bel ons
-                direct — we zijn doorgaans binnen 30 minuten ter plaatse.
+                direct — dan kunnen we meteen de beschikbaarheid en aankomsttijd doorgeven.
               </p>
               <p className="mt-6 text-lg font-semibold">
                 <a href={`tel:${site.phoneE164}`} className="hover:text-accent">📞 {site.phone}</a>
@@ -175,7 +177,8 @@ export default async function CityPage({
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-primary">Wat kost een slotenmaker in {city.name}?</h2>
           <p className="mt-2 max-w-3xl text-muted">
-            In {city.name} hanteren we dezelfde eerlijke richtprijzen als in de rest van Oost-Vlaanderen:
+            Hieronder staan de interventietarieven en mogelijke extra kosten, exclusief btw.
+            Vraag telefonisch welke prijs voor uw locatie en situatie geldt voordat u akkoord gaat.
           </p>
           <div className="mt-8">
             <CostTable />

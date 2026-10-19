@@ -41,7 +41,7 @@ export default async function PostPage({
     <>
       <JsonLd
         data={[
-          articleLd({ title: p.title, description: p.description, path: `/blog/${p.slug}`, date: p.date }),
+          articleLd({ title: p.title, description: p.description, path: `/blog/${p.slug}`, date: p.date, modified: p.modified }),
           breadcrumbLd([
             { name: "Home", path: "/" },
             { name: "Blog", path: "/blog" },
@@ -85,7 +85,7 @@ export default async function PostPage({
           <div className="mt-10 rounded-xl bg-surface p-6">
             <p className="font-semibold text-primary">Hulp nodig in Oost-Vlaanderen?</p>
             <p className="mt-1 text-sm text-muted">
-              {site.owner} helpt u 24/7, doorgaans binnen 30 minuten ter plaatse en schadevrij waar mogelijk.
+              Bel {site.owner} voor de actuele beschikbaarheid, verwachte aankomsttijd en richtprijs. We werken schadevrij waar mogelijk.
             </p>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row">
               <a href={`tel:${site.phoneE164}`} className="rounded-lg bg-accent px-6 py-3 text-center font-semibold text-white hover:bg-accent-hover">

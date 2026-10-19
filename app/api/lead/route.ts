@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server";
 
-/**
- * Lead-endpoint. Werkt out-of-the-box (logt de lead).
- * - Zijn SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY gezet → lead wordt in tabel `leads` geschreven.
- * - Is RESEND_API_KEY gezet → er wordt een e-mailmelding gestuurd naar LEAD_NOTIFY_EMAIL.
- */
+/** Een aanvraag is pas geslaagd zodra minstens één afleverroute ze heeft aanvaard. */
 export async function POST(req: Request) {
   let body: Record<string, unknown>;
   try {
@@ -27,12 +23,20 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "naam en telefoon zijn verplicht" }, { status: 422 });
   }
 
-  // Optioneel: Supabase
   const sbUrl = process.env.SUPABASE_URL;
   const sbKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const resendKey = process.env.RESEND_API_KEY;
+  const notify = process.env.LEAD_NOTIFY_EMAIL;
+  const from = process.env.LEAD_FROM_EMAIL;
+  if (!(sbUrl && sbKey) && !(resendKey && notify && from)) {
+    console.error("Lead-aflevering is niet geconfigureerd");
+    return NextResponse.json({ error: "Aanvraag kan momenteel niet worden verzonden. Bel ons rechtstreeks." }, { status: 503 });
+  }
+
+  let delivered = false;
   if (sbUrl && sbKey) {
     try {
-      await fetch(`${sbUrl}/rest/v1/leads`, {
+      const response = await fetch(`${sbUrl}/rest/v1/leads`, {
         method: "POST",
         headers: {
           apikey: sbKey,
@@ -42,33 +46,35 @@ export async function POST(req: Request) {
         },
         body: JSON.stringify(lead),
       });
+      if (response.ok) delivered = true;
+      else console.error("Lead-opslag faalde met status", response.status);
     } catch (e) {
-      console.error("Supabase insert faalde:", e);
+      console.error("Lead-opslag faalde door een netwerkfout", e instanceof Error ? e.name : "onbekend");
     }
   }
 
-  // Optioneel: e-mailmelding via Resend
-  const resendKey = process.env.RESEND_API_KEY;
-  const notify = process.env.LEAD_NOTIFY_EMAIL;
-  if (resendKey && notify) {
+  if (resendKey && notify && from) {
     try {
-      await fetch("https://api.resend.com/emails", {
+      const response = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: { Authorization: `Bearer ${resendKey}`, "Content-Type": "application/json" },
         body: JSON.stringify({
-          from: "Leads <leads@slotenmakerponnet.be>",
+          from,
           to: [notify],
           subject: `Nieuwe lead: ${lead.situatie} (${lead.postcode})`,
           text: `Naam: ${lead.naam}\nTelefoon: ${lead.telefoon}\nE-mail: ${lead.email}\nPostcode: ${lead.postcode}\nSituatie: ${lead.situatie}\n\n${lead.beschrijving}`,
         }),
       });
+      if (response.ok) delivered = true;
+      else console.error("Lead-melding faalde met status", response.status);
     } catch (e) {
-      console.error("Resend mail faalde:", e);
+      console.error("Lead-melding faalde door een netwerkfout", e instanceof Error ? e.name : "onbekend");
     }
   }
 
-  // Altijd loggen zodat geen enkele lead verloren gaat
-  console.log("NIEUWE LEAD:", JSON.stringify(lead));
+  if (!delivered) {
+    return NextResponse.json({ error: "Aanvraag kon niet worden verzonden. Bel ons rechtstreeks." }, { status: 502 });
+  }
 
   return NextResponse.json({ ok: true });
 }

@@ -3,8 +3,8 @@ export type Faq = { q: string; a: string };
 /** Algemene FAQ (homepage + FAQ-schema). */
 export const generalFaqs: Faq[] = [
   {
-    q: "Hoe snel zijn jullie ter plaatse in Oost-Vlaanderen?",
-    a: "Bij een spoedoproep zijn we doorgaans binnen 30 minuten bij u. Onze wachtdienst bestrijkt heel Oost-Vlaanderen, 24 uur op 24 en 7 dagen op 7.",
+    q: "Hoe snel kunnen jullie ter plaatse zijn?",
+    a: "Dat hangt af van uw locatie en de lopende opdrachten. Bel met uw postcode; we geven de verwachte aankomsttijd door voordat u beslist.",
   },
   {
     q: "Openen jullie de deur zonder schade?",
@@ -16,7 +16,7 @@ export const generalFaqs: Faq[] = [
   },
   {
     q: "Zijn jullie ook 's nachts en in het weekend bereikbaar?",
-    a: "Ja. Onze wachtdienst voor Oost-Vlaanderen is dag en nacht bereikbaar, ook op zon- en feestdagen. U belt een nummer.",
+    a: "Bel voor de actuele beschikbaarheid. Voor avond-, nacht-, weekend- en feestdagopdrachten bespreken we het toepasselijke tarief vooraf.",
   },
   {
     q: "Werken jullie met gecertificeerd, inbraakwerend materiaal?",
@@ -33,15 +33,15 @@ export function cityFaqs(cityName: string): Faq[] {
   return [
     {
       q: `Hoe snel is de slotenmaker ter plaatse in ${cityName}?`,
-      a: `Vanuit onze uitvalsbasis in Wetteren bereiken we ${cityName} doorgaans binnen 30 minuten. Bij spoed komen we 24/7.`,
+      a: `Onze uitvalsbasis is Wetteren. Voor ${cityName} bevestigen we de beschikbaarheid en verwachte aankomsttijd telefonisch zodra we uw adres kennen.`,
     },
     {
       q: `Kan ik in ${cityName} ook 's nachts een slotenmaker bellen?`,
-      a: `Ja, onze wachtdienst voor ${cityName} en omgeving is dag en nacht bereikbaar, ook in het weekend en op feestdagen.`,
+      a: `Bel voor de actuele beschikbaarheid in ${cityName}. We bespreken vooraf wanneer we kunnen komen en welk tarief op dat moment geldt.`,
     },
     {
       q: `Wat kost een slotenmaker in ${cityName}?`,
-      a: `In ${cityName} kost een interventie overdag op een weekdag 100 euro, inclusief voorrijkosten en het eerste werkuur. In het weekend of 's avonds is dat 200 euro en 's nachts 250 euro. Alle prijzen zijn exclusief btw en we spreken ze vooraf met u af.`,
+      a: `Een interventie overdag op een weekdag start op 100 euro, in het weekend of 's avonds op 200 euro en 's nachts op 250 euro, exclusief btw. Binnen 30 km zijn voorrijkosten en het eerste werkuur inbegrepen. Vraag voor ${cityName} naar de totale richtprijs inclusief eventuele extra kosten.`,
     },
     {
       q: `Openen jullie de deur in ${cityName} zonder schade?`,

@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Script from "next/script";
 import { CONSENT_EVENT, readConsent, writeConsent, type ConsentValue } from "@/lib/consent";
+import { ANALYTICS_LEAD_EVENT, trackAnalyticsEvent } from "@/lib/analytics-events";
 
 /**
  * Consent-gate + GA4. De component is volledig inert zonder NEXT_PUBLIC_GA_ID
@@ -24,6 +25,21 @@ export function Analytics({ gaId }: { gaId?: string }) {
     const open = () => setShowBanner(true);
     window.addEventListener(CONSENT_EVENT, open);
     return () => window.removeEventListener(CONSENT_EVENT, open);
+  }, []);
+
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      if (event.target instanceof Element && event.target.closest('a[href^="tel:"]')) {
+        trackAnalyticsEvent("phone_click", window.location.pathname);
+      }
+    };
+    const onLead = () => trackAnalyticsEvent("lead_submitted", window.location.pathname);
+    document.addEventListener("click", onClick);
+    window.addEventListener(ANALYTICS_LEAD_EVENT, onLead);
+    return () => {
+      document.removeEventListener("click", onClick);
+      window.removeEventListener(ANALYTICS_LEAD_EVENT, onLead);
+    };
   }, []);
 
   const choose = useCallback((value: ConsentValue) => {
@@ -67,8 +83,8 @@ gtag('config', '${gaId}', { anonymize_ip: true });`}
               We gebruiken enkel analytische cookies om te zien welke pagina&apos;s bezoekers helpen.
               Geen advertentiecookies. Weiger je? Dan laden we niets.{" "}
               <a
-                href="/privacybeleid"
-                className="font-medium text-accent-dark underline underline-offset-2"
+                href="/privacy"
+                className="font-medium text-accent underline underline-offset-2"
               >
                 Privacybeleid
               </a>

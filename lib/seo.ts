@@ -35,7 +35,6 @@ export function localBusinessLd(opts?: { cityName?: string; path?: string }) {
     "@type": "Locksmith",
     "@id": site.url + "/#business",
     name: site.name,
-    image: site.url + "/images/og.jpg",
     url: site.url + (opts?.path ?? ""),
     telephone: site.phoneE164,
     priceRange: "€€",
@@ -52,17 +51,6 @@ export function localBusinessLd(opts?: { cityName?: string; path?: string }) {
     areaServed: opts?.cityName
       ? { "@type": "City", name: opts.cityName }
       : { "@type": "AdministrativeArea", name: "Oost-Vlaanderen" },
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      opens: "00:00",
-      closes: "23:59",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: site.reviewRating,
-      reviewCount: site.reviewCount,
-    },
   };
 }
 
@@ -104,14 +92,14 @@ export function serviceLd(opts: { name: string; description: string; path: strin
   };
 }
 
-export function articleLd(opts: { title: string; description: string; path: string; date: string }) {
+export function articleLd(opts: { title: string; description: string; path: string; date: string; modified?: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: opts.title,
     description: opts.description,
     datePublished: opts.date,
-    dateModified: opts.date,
+    dateModified: opts.modified ?? opts.date,
     author: { "@type": "Person", name: site.owner },
     publisher: { "@type": "Organization", name: site.name },
     mainEntityOfPage: site.url + opts.path,

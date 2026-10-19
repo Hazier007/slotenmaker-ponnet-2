@@ -15,7 +15,7 @@ export default function CTABar() {
           Bel nu
         </a>
         <a
-          href="#leadform"
+          href="/contact"
           className="flex items-center justify-center gap-2 rounded-lg border border-primary py-3 font-semibold text-primary"
         >
           Offerte
