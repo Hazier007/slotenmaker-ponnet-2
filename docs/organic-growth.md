@@ -27,7 +27,7 @@
 
 - Kristof bevestigt de actuele uren, werkgebieden, aankomsttijden, erkenningen en gebruikte keurmerken. Publiceer aantallen ervaringsjaren en reviewscores pas na verificatie.
 - Controleer in Vercel dat `NEXT_PUBLIC_GA_ID` naar de juiste GA4-property verwijst. Test na toestemming één paginaweergave, één telefoontik en één afgeleverde proefaanvraag in GA4 DebugView. Zonder toestemming mogen geen GA4-gebeurtenissen worden verzonden.
-- Configureer minimaal één werkende afleverroute voor het formulier: Supabase (`SUPABASE_URL` en `SUPABASE_SERVICE_ROLE_KEY`) of Resend (`RESEND_API_KEY`, `LEAD_NOTIFY_EMAIL` en `LEAD_FROM_EMAIL`). Voor Resend is `slotenmakerponnet.be` opgegeven als geverifieerd afzenderdomein en `info@slotenmaker-ponnet.be` als ontvanger; controleer dit met een echte aanvraag vóór livegang. Zonder route geeft de API nu terecht een foutmelding.
+- Configureer minimaal één werkende afleverroute voor het formulier: Supabase (`SUPABASE_URL` en `SUPABASE_SERVICE_ROLE_KEY`) of Resend (`RESEND_API_KEY`, `LEAD_NOTIFY_EMAIL` en `LEAD_FROM_EMAIL`). Voor Resend is `slotenmakerponnet.be` opgegeven als geverifieerd afzenderdomein en `info@slotenmaker-ponnet.be` als ontvanger; controleer dit met een echte aanvraag vóór activering. Zolang geen route is ingesteld, toont de site telefoon en e-mail in plaats van het formulier en geeft de API bij rechtstreekse aanroepen een foutmelding.
 - Controleer of foto's en reviews met toestemming op de site mogen staan. Het ongebruikte bestand met fictieve voorbeeldrecensies is verwijderd.
 
 ## Beslismoment na drie maanden

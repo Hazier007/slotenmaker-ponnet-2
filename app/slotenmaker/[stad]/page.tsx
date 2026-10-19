@@ -5,7 +5,7 @@ import { allCitySlugs, getCity, cityExtra, type City } from "@/lib/cities";
 import { services } from "@/lib/services";
 import { cityFaqs } from "@/lib/faqs";
 import { site } from "@/lib/site";
-import LeadForm from "@/components/LeadForm";
+import LeadRequest from "@/components/LeadRequest";
 import FAQ from "@/components/FAQ";
 import CostTable from "@/components/CostTable";
 import JsonLd from "@/components/JsonLd";
@@ -160,14 +160,14 @@ export default async function CityPage({
             <div className="text-white">
               <h2 className="text-2xl font-bold">Slotenmaker {city.name} aanvragen</h2>
               <p className="mt-4 text-white/80">
-                Vul uw gegevens in, dan nemen we snel contact op. Spoed in {city.name}? Bel ons
+                Bel of mail ons met uw situatie. Spoed in {city.name}? Bel ons
                 direct — dan kunnen we meteen de beschikbaarheid en aankomsttijd doorgeven.
               </p>
               <p className="mt-6 text-lg font-semibold">
                 <a href={`tel:${site.phoneE164}`} className="hover:text-accent">📞 {site.phone}</a>
               </p>
             </div>
-            <LeadForm defaultCity={city.name} />
+            <LeadRequest defaultCity={city.name} />
           </div>
         </div>
       </section>

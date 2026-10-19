@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import { services } from "@/lib/services";
 import { featuredCitySlugs, getCity } from "@/lib/cities";
 import { generalFaqs } from "@/lib/faqs";
-import LeadForm from "@/components/LeadForm";
+import LeadRequest from "@/components/LeadRequest";
 import FAQ from "@/components/FAQ";
 import CostTable from "@/components/CostTable";
 import Reviews from "@/components/Reviews";
@@ -137,15 +137,15 @@ export default function Home() {
             <div className="text-white">
               <h2 className="text-2xl font-bold">Vraag vrijblijvend advies of een offerte aan</h2>
               <p className="mt-4 text-white/80">
-                Laat uw gegevens achter en we nemen zo snel mogelijk contact op. Bij spoed
-                belt u ons direct voor de actuele beschikbaarheid en aankomsttijd.
+                Vertel ons uw situatie per telefoon of via het aanvraagformulier. Bij spoed
+                belt u direct voor de actuele beschikbaarheid en aankomsttijd.
               </p>
               <p className="mt-6 text-lg font-semibold">
                 <a href={`tel:${site.phoneE164}`} className="hover:text-accent">📞 {site.phone}</a>
               </p>
               <p className="mt-1 text-sm text-white/70">Vanuit Wetteren · groot Gent en omgeving</p>
             </div>
-            <LeadForm />
+            <LeadRequest />
           </div>
         </div>
       </section>

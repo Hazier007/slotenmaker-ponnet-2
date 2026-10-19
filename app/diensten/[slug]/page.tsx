@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { services, getService } from "@/lib/services";
 import { featuredCitySlugs, getCity } from "@/lib/cities";
 import { site } from "@/lib/site";
-import LeadForm from "@/components/LeadForm";
+import LeadRequest from "@/components/LeadRequest";
 import CostTable from "@/components/CostTable";
 import JsonLd from "@/components/JsonLd";
 import { CallToActionBand } from "@/components/Section";
@@ -110,13 +110,13 @@ export default async function ServicePage({
             <div className="text-white">
               <h2 className="text-2xl font-bold">{s.title} aanvragen</h2>
               <p className="mt-4 text-white/80">
-                Laat uw gegevens achter voor een vrijblijvende offerte, of bel ons direct bij spoed.
+                Bel of mail ons voor een vrijblijvende offerte. Bij spoed belt u het best direct.
               </p>
               <p className="mt-6 text-lg font-semibold">
                 <a href={`tel:${site.phoneE164}`} className="hover:text-accent">📞 {site.phone}</a>
               </p>
             </div>
-            <LeadForm />
+            <LeadRequest />
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
-import LeadForm from "@/components/LeadForm";
+import LeadRequest from "@/components/LeadRequest";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -18,7 +18,7 @@ export default function ContactPage() {
           <h1 className="text-3xl font-bold text-white sm:text-4xl">Contact &amp; offerte</h1>
           <p className="mt-4 max-w-3xl text-lg text-white/85">
             Bij spoed belt u ons het best direct. Voor een vrijblijvende offerte of advies
-            vult u onderstaand formulier in.
+            gebruikt u de contactmogelijkheden hieronder.
           </p>
         </div>
       </section>
@@ -58,7 +58,7 @@ export default function ContactPage() {
             )}
           </div>
           <div>
-            <LeadForm />
+            <LeadRequest />
           </div>
         </div>
       </section>

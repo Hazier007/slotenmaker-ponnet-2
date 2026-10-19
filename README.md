@@ -29,8 +29,9 @@ Kopieer `.env.example` naar `.env.local` en vul in waar nodig:
 - Het leadformulier vereist minstens één afleverroute: `SUPABASE_URL` +
   `SUPABASE_SERVICE_ROLE_KEY` (tabel `leads`) of `RESEND_API_KEY` +
   `LEAD_NOTIFY_EMAIL` + `LEAD_FROM_EMAIL` (afzenderdomein geverifieerd in Resend).
-  Zonder geldige configuratie meldt het formulier een fout
-  en kan de klant telefonisch contact opnemen. Leads worden niet in logs bewaard.
+  Zonder geldige configuratie toont de site bellen en e-mailen in plaats van
+  het formulier. De API geeft dan een fout bij rechtstreekse aanroepen.
+  Leads worden niet in logs bewaard.
 - GA4 laadt pas na analytische toestemming. Stel `NEXT_PUBLIC_GA_ID` in en controleer
   de gebeurtenissen `phone_click` en `lead_submitted` in de bedoelde GA4-property.
 - Het maandelijkse groeiproces en de nulmeting staan in `docs/organic-growth.md`.
