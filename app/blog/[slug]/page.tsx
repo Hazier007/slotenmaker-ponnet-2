@@ -82,6 +82,19 @@ export default async function PostPage({
             </div>
           ))}
 
+          {p.sources && p.sources.length > 0 && (
+            <aside className="mt-8 border-t border-border pt-6" aria-label="Bronnen">
+              <h2 className="text-xl font-bold text-primary">Bronnen</h2>
+              <ul className="mt-3 space-y-2">
+                {p.sources.map((source) => (
+                  <li key={source.url}>
+                    <a href={source.url} className="text-accent underline underline-offset-4">{source.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )}
+
           <div className="mt-10 rounded-xl bg-surface p-6">
             <p className="font-semibold text-primary">Hulp nodig in Oost-Vlaanderen?</p>
             <p className="mt-1 text-sm text-muted">

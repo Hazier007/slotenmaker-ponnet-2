@@ -15,9 +15,55 @@ export type Post = {
   intro: string;
   sections: PostSection[];
   faqs?: Faq[];
+  sources?: { title: string; url: string }[];
 };
 
 export const posts: Post[] = [
+  {
+    slug: "slotenmaker-onaangename-verrassingen",
+    title: "Slotenmaker nodig? Zo vermijdt u onaangename verrassingen",
+    h1: "Slotenmaker nodig? Zo vermijdt u onaangename verrassingen",
+    description: "Slotenmaker nodig? Lees waarop u let bij uw keuze, welke prijsafspraken u vooraf maakt en hoe u misleidende bedrijfsinformatie meldt.",
+    date: "2026-10-20",
+    readMinutes: 3,
+    keyword: "betrouwbare slotenmaker",
+    excerpt: "Voor een gesloten deur wilt u snel geholpen worden. Lees waarop u let bij uw keuze en welke prijsafspraken u vooraf maakt.",
+    intro: "U staat voor een gesloten deur en uw sleutel ligt binnen. Dan wilt u snel geholpen worden. Toch loont het om even te controleren wie u laat komen. De FOD Economie waarschuwt voor noodherstellers die klanten lokken met een lage prijs en achteraf veel meer aanrekenen.",
+    sections: [
+      {
+        heading: "Kies niet blindelings het eerste zoekresultaat",
+        body: [
+          "Neem even de tijd om verschillende aanbieders te bekijken. De FOD Economie raadt af om zomaar de eerste firma uit uw internetzoektocht te bellen. Laat u ook niet overtuigen door een opvallend lage lokprijs.",
+          "Vraag tijdens het telefoongesprek met welke onderneming u spreekt en wie de interventie uitvoert. Noteer de bedrijfsnaam en vraag naar de volledige prijs.",
+        ],
+      },
+      {
+        heading: "Maak duidelijke prijsafspraken vóór het werk begint",
+        body: [
+          "Vraag vooraf een schriftelijke offerte met alle kosten. Bespreek daarbij de verplaatsing, het werk, eventuele materialen, btw en mogelijke toeslagen.",
+          "Blijkt ter plaatse extra werk nodig? Vraag ook daarvan eerst de prijs op papier, vóór u toestemming geeft om verder te werken. Dat is ook het advies van de FOD Economie.",
+        ],
+      },
+      {
+        heading: "Meld misleidende informatie op Google Maps",
+        body: [
+          "Vermoedt u op basis van misleidende bedrijfsinformatie dat een vermelde onderneming niet echt bestaat? Google biedt daarvoor een meldmogelijkheid. Open de vermelding en kies ‘Bewerking voorstellen’, vervolgens ‘Plaats is gesloten of is niet hier’ en de reden ‘Aanstootgevend, schadelijk of misleidend’.",
+          "Voor vermoedelijk frauduleuze bedrijfsnamen, telefoonnummers of websiteadressen heeft Google ook een afzonderlijk formulier voor zakelijke klachten. Meld concrete onjuistheden; een vermoeden alleen is geen reden om anderen tot massale meldingen op te roepen.",
+        ],
+      },
+      {
+        heading: "Bewaar het nummer vóór u het nodig hebt",
+        body: [
+          "Ons advies: kies op een rustig moment wie u zou bellen bij een probleem en bewaar dat nummer. Zo hoeft u die keuze niet te maken terwijl u buiten voor een gesloten deur staat.",
+          "Vragen over uw slot of een deurprobleem? Neem contact met ons op en bespreek wat er nodig is.",
+        ],
+      },
+    ],
+    sources: [
+      { title: "FOD Economie — Dringende herstelling nodig? Ga niet overhaast te werk!", url: "https://economie.fgov.be/nl/themas/consumentenbescherming/stop-bedrog/de-belangrijkste-vormen-van/verdachte-agressieve-verkopers/dringende-herstelling-nodig-ga" },
+      { title: "Google Maps Help — Een bedrijf melden op Google Maps", url: "https://support.google.com/maps/answer/16109801?hl=nl" },
+    ],
+  },
   {
     slug: "wat-kost-een-slotenmaker",
     title: "Wat kost een slotenmaker in Oost-Vlaanderen? (tarieven 2026)",
